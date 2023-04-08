@@ -1,0 +1,191 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+@model CollegeFinder.Areas.College.Models.CollegeModel;
+
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a ><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#"> Add new College</a>
+            </li>
+            <li class="page-back">
+                <a asp-area="College" asp-controller="College" asp-action="Index" ><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> 
+        </ul>
+    </div>
+
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="sb2-2-add-blog sb2-2-1">
+        
+                   
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade active in">
+                                <div class="box-inn-sp">
+                                    <div class="inn-title">
+                                        <h4>College AddEdit</h4>
+                                        <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                    </div>
+                                    <div class="bor">
+
+                                        <form asp-area="College" asp-controller="College" asp-action="Save">
+                                            @Html.HiddenFor(x=>x.Collegeid)
+                                            <div class="row">
+
+                                             
+                                                 <div class="input-field col s12">
+                                                    <h5>College_Name</h5>
+                                                    <input id="list-title" type="text" asp-for="College_Name" class="validate">
+                                                    <span asp-validation-for="College_Name" id="foralert" class="text-success"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Genders_Accepted</h5>
+                                                    <input id="list-title" type="text" asp-for="Genders_Accepted" class="validate">
+                                                    <span asp-validation-for="Genders_Accepted" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Campus_Size</h5>
+                                                    <input id="list-title" type="text" asp-for="Campus_Size" class="validate">
+                                                    <span asp-validation-for="Campus_Size" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Total Student</h5>
+                                                    <input id="list-title" type="text" asp-for="Total_Student_Enrollments" class="validate">
+                                                    <span asp-validation-for="Total_Student_Enrollments" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                 <div class="input-field col s12">
+                                                    <h5>Total Faculty</h5>
+                                                    <input id="list-title" type="text" asp-for="Total_Faculty" class="validate">
+                                                    <span asp-validation-for="Total_Faculty" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Established Year</h5>
+                                                    <input id="list-title" type="text" asp-for="Established_Year" class="validate">
+                                                    <span asp-validation-for="Established_Year" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Rating</h5>
+                                                    <input id="list-title" type="text" asp-for="Rating" class="validate">
+                                                    <span asp-validation-for="Rating" id="foralert"  class="text-danger"></span>
+                                                    <div  class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>University</h5>
+                                                    <input id="list-title" type="text" asp-for="University" class="validate">
+                                                    <span asp-validation-for="University" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Courses</h5>
+                                                    <input id="list-title" type="text" asp-for="Courses" class="validate">
+                                                    <span asp-validation-for="Courses" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Facilities</h5>
+                                                    <input id="list-title" type="text" asp-for="Facilities" class="validate">
+                                                    <span asp-validation-for="Facilities" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>City</h5>
+                                                    <input id="list-title" type="text" asp-for="City" class="validate">
+                                                    <span asp-validation-for="City" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>State</h5>
+                                                    <input id="list-title" type="text" asp-for="State" class="validate">
+                                                    <span asp-validation-for="State" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Country</h5>
+                                                    <input id="list-title" type="text" asp-for="Country" class="validate">
+                                                    <span asp-validation-for="Country" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>College Type</h5>
+                                                    <input id="list-title" type="text" asp-for="College_Type" class="validate">
+                                                    <span asp-validation-for="College_Type" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Average Fees</h5>
+                                                    <input id="list-title" type="text" asp-for="Average_Fees" class="validate">
+                                                    <span asp-validation-for="Average_Fees"id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Placement</h5>
+                                                    <input id="list-title" type="text" asp-for="Placement" class="validate">
+                                                    <span asp-validation-for="Placement" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>College_area</h5>
+                                                    <input id="list-title" type="text" asp-for="College_area" class="validate">
+                                                    <span asp-validation-for="College_area" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Totalseat</h5>
+                                                    <input id="list-title" type="text" asp-for="Totalseat" class="validate">
+                                                    <span asp-validation-for="Totalseat" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Latitude</h5>
+                                                    <input id="list-title" type="text" asp-for="latitude" class="validate">
+                                                    <span asp-validation-for="latitude" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Longitude</h5>
+                                                    <input id="list-title" type="text" asp-for="longitude" class="validate">
+                                                    <span asp-validation-for="longitude" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+

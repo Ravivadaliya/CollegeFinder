@@ -1,0 +1,125 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+@model CollegeFinder.Areas.Admin.Models.AdminModel;
+
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#">Add Admin</a>
+            </li>
+            <li class="page-back">
+                <a asp-area="User" asp-controller="User" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="sb2-2-add-blog sb2-2-1">
+
+
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade active in">
+                                <div class="box-inn-sp">
+                                    <div class="inn-title">
+                                        <h4>Enter Admin Details</h4>
+                                    </div>
+                                    <div class="bor">
+
+                                        <form  asp-area="Admin" asp-controller="Admin" asp-action="Save">
+                                            <div class="row">
+                                                @Html.HiddenFor(x=>x.Adminid)
+
+                                                <div class="input-field col s12">
+                                                    <h5>Admin name</h5>
+                                                    <input asp-for="Adminname" id="list-title" type="text" class="validate">
+                                                    <span asp-validation-for="Adminname" id="foralert" class="text-success"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Email</h5>
+                                                    <input asp-for="AdminEmail" id="list-title" type="email" class="validate">
+                                                    <span asp-validation-for="AdminEmail"  id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Password</h5>
+                                                    <input asp-for="Adminpassword" id="list-title" type="text" class="validate">
+                                                    <span  asp-validation-for="Adminpassword" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Mobile</h5>
+                                                    <input asp-for="AdminMobil" id="list-title" type="text" class="validate">
+                                                    <span asp-validation-for="AdminMobil"  id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin City</h5>
+                                                    <input asp-for="AdminCity" id="list-title" type="text" class="validate">
+                                                    <span asp-validation-for="AdminCity"  id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin State</h5>
+                                                    <input asp-for="AdminState" id="list-title" type="text" class="validate">
+                                                    <span asp-validation-for="AdminState" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Country</h5>
+                                                    <input asp-for="AdminCountry" id="list-title" type="text" class="validate">
+                                                    <span asp-validation-for="AdminCountry" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Creation Date</h5>
+                                                    <input asp-for="AdminCreationdate" id="list-title" class="validate">
+                                                    <span asp-validation-for="AdminCreationdate" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Modification Date</h5>
+                                                    <input asp-for="AdminModificationdate" id="list-title" class="validate">
+                                                    <span asp-validation-for="AdminModificationdate" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" ></i>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+

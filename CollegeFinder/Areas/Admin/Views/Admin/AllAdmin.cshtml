@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+@using System.Data;
+@model DataTable
+
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#"> CollegeAddEdit</a>
+            </li>
+            <li class="page-back">
+                <a href="#"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet-title">
+                    <div class="caption">
+
+                        <span class="caption-subject font-red sbold uppercase">
+
+                            @if (TempData["AlertMsg"] != null)
+                            {
+
+                                <h4 class="alert text-success">@TempData["AlertMsg"]</h4>
+                            }
+                        </span>
+
+                    </div>
+                </div>
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>Admin List</h4>
+
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Admin Name</th>
+                                        <th class="text-center">Admin Mail</th>
+                                        <th class="text-center">Admin Password</th>
+                                        <th class="text-center">Admin Mobile</th>
+                                        <th class="text-center">Admin City</th>
+                                        <th class="text-center">Edit</th>
+                                        <th class="text-center">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (DataRow dr in Model.Rows)
+                                    {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@dr["Adminname"]</td>
+                                            <td>@dr["AdminEmail"]</td>
+                                            <td>@dr["Adminpassword"]</td>
+                                            <td>@dr["AdminMobil"]</td>
+                                            <td>@dr["AdminCity"]</td>
+                                           
+                                            <td>
+                                                <a style="color:white" asp-controller="Admin" asp-action="Add" asp-route-Adminid="@Convert.ToInt32(dr["Adminid"])" class="btn btn-primary">Edit</a>
+                                                
+                                            </td>
+                                            <td>
+
+                                                <form method="post" asp-area="Admin" asp-controller="Admin" asp-action="Delete">
+                                                    <input type="hidden" name="Adminid" value="@Convert.ToInt32(dr["Adminid"])" />
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @dr["Adminid"]')">Delete</button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

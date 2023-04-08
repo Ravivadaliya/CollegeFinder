@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+@model CollegeFinder.Areas.Admin.Models.SubAdminModel;
+
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#">Add Admin</a>
+            </li>
+            <li class="page-back">
+                <a asp-area="User" asp-controller="User" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>  
+        </ul>
+    </div>
+
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="sb2-2-add-blog sb2-2-1">
+
+                        <h3>@TempData["Error"]</h3>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade active in">
+                                <div class="box-inn-sp">
+                                    <div class="inn-title">
+                                        <h4>Enter Your Email Or Password</h4>
+                           
+                                    </div>
+                                    <div class="bor">
+                                     
+                                        
+                                        <form method="post" asp-area="Admin" asp-controller="Admin" asp-action="CheckSubLogin" >
+                                            <div class="row">
+                                             
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Email</h5>
+                                                    <input asp-for="SubAdminEmail" id="list-title" type="email" class="validate">
+                                                    <span asp-validation-for="SubAdminEmail" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5>Admin Password</h5>
+                                                    <input asp-for="SubAdminPassword" id="list-title" type="password" class="validate">
+                                                    <span asp-validation-for="SubAdminPassword" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>  
+                                                <div class="input-field col s12">
+                                                    <h5>For 0 All Admin & 1 AddEdit</h5>
+                                                    <input asp-for="Statusid" id="list-title" type="number" class="validate">
+                                                    <span asp-validation-for="Statusid" id="foralert" class="text-danger"></span>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                                </div>
+                                            </div>
+                                       
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+

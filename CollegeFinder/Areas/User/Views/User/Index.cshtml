@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+@using System.Data;
+@model DataTable
+
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a asp-area="User" asp-controller="User" asp-action="Dashboard"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#"> Users</a>
+            </li>
+            <li class="page-back">
+                <a asp-area="User" asp-controller="User" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i>Back</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet-title">
+                    <div class="caption">
+
+                        <span class="caption-subject font-red sbold uppercase">
+
+                            @if (TempData["AlertMsg"] != null)
+                            {
+
+                                <h4 class="alert text-success">@TempData["AlertMsg"]</h4>
+                            }
+                        </span>
+
+                    </div>
+                </div>
+
+
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>User Details</h4>
+                        @*<p>All about students like name, student id, phone, email, country, city and more</p>*@
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" >userid</th>
+                                        <th class="text-center" >username</th>
+                                        <th class="text-center" >usermobile</th>
+                                        <th class="text-center" >usermailid</th>
+                                        <th class="text-center" >usercity</th>
+                                        <th class="text-center" >userstate</th>
+                                        <th class="text-center" >usercountry</th>
+                                        <th class="text-center" >userpassword</th>
+                                       @* <th class="text-center" >creationdate</th>
+                                        <th class="text-center">modificationdate</th>*@
+                                        <th class="text-center">Edit</th>
+                                        <th class="text-center">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (DataRow dr in Model.Rows)
+                                    {
+                                        <tr>
+                                            <td>@dr["userid"]</td>
+                                            <td>@dr["usename"]</td>
+                                            <td>@dr["usermobile"]</td>
+                                            <td>@dr["usermailid"]</td>
+                                            <td>@dr["usercity"]</td>
+                                            <td>@dr["userstate"]</td>
+                                            <td>@dr["usercountry"]</td>
+                                            <td>@dr["userpassword"]</td>
+
+                                            <td>
+                                                <a style="color:white" asp-area="User" asp-controller="User" asp-action="Add" asp-route-userid="@Convert.ToInt32(dr["userid"])" class="btn btn-primary">Edit</a>
+
+                                            </td>
+                                            <td>
+                                                <form method="post" asp-area="User" asp-controller="User" asp-action="Delete">
+                                                    <input type="hidden" name="userid" value="@Convert.ToInt32(dr["userid"])" />
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @dr["userid"]')">Delete</button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/Views/Shared/Adminlayout/AdminLayout.cshtml";
+}
+
+@using System.Data;
+@model DataTable
+
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li>
+                <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre">
+                <a href="#"> Students</a>
+            </li>
+            <li class="page-back">
+                <a asp-area ="User" asp-controller="User" asp-action="Dashboard" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>Student Details</h4>
+                        <p>All about students like name, student id, phone, email, country, city and more</p>
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            <div class="table-toolbar">
+
+                                <div class="col col-md-4">
+                                    <input type="search" id="myInput" class="border-dark   rounded-7" placeholder="Search...">
+                                </div>
+
+                            </div>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">studentid</th>
+                                        <th class="text-center" >collegename</th>
+                                        <th class="text-center" >studentname</th>
+                                        <th class="text-center" >studentmobile</th>
+                                        <th class="text-center" >studentmailid</th>
+                                        <th class="text-center" >gender</th>
+                                        <th class="text-center" >birthdate</th>
+                                        <th class="text-center" >city</th>
+                                        <th class="text-center" >creationdate</th>
+                                        <th class="text-center" >Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (DataRow dr in Model.Rows)
+                                    {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@dr["College_Name"]</td>
+                                            <td>@dr["studentname"]</td>
+                                            <td>@dr["studentmobile"]</td>
+                                            <td>@dr["studentmailid"]</td>
+                                            <td>@dr["gender"]</td>
+                                            <td>@Convert.ToDateTime(dr["birthdate"]).ToString("dd-MM-yyyy")</td>
+                                            <td>@dr["city"]</td>
+                                            <td>@Convert.ToDateTime(dr["creationdate"]).ToString("dd-MM-yyyy")</td>
+
+
+                                            <td>
+                                                <form method="post" asp-area="student" asp-controller="student" asp-action="Delete">
+                                                    <input type="hidden" name="studentid" value="@Convert.ToInt32(dr["studentid"])" />
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @dr["studentid"]')">Delete</button>
+                                                </form>
+
+                                            <td>
+                                        </tr>
+                                        i++;
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+   }
