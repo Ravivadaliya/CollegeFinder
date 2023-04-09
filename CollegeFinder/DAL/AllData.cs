@@ -246,6 +246,9 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "Totalseat", SqlDbType.Int,ForCollege.Totalseat);
                 sqlDB.AddInParameter(dbCMD, "latitude", SqlDbType.NVarChar,ForCollege.latitude);
                 sqlDB.AddInParameter(dbCMD, "longitude", SqlDbType.NVarChar,ForCollege.longitude);
+                sqlDB.AddInParameter(dbCMD, "College_image", SqlDbType.NVarChar, ForCollege.College_image);
+                sqlDB.AddInParameter(dbCMD, "College_Website", SqlDbType.NVarChar, ForCollege.College_Website);
+                sqlDB.AddInParameter(dbCMD, "College_Number", SqlDbType.NVarChar, ForCollege.College_Number);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);
@@ -283,6 +286,9 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "Totalseat", SqlDbType.Int, ForCollege.Totalseat);
                 sqlDB.AddInParameter(dbCMD, "latitude", SqlDbType.NVarChar, ForCollege.latitude);
                 sqlDB.AddInParameter(dbCMD, "longitude", SqlDbType.NVarChar, ForCollege.longitude);
+                sqlDB.AddInParameter(dbCMD, "College_image", SqlDbType.NVarChar, ForCollege.College_image);
+                sqlDB.AddInParameter(dbCMD, "College_Website", SqlDbType.NVarChar, ForCollege.College_Website);
+                sqlDB.AddInParameter(dbCMD, "College_Number", SqlDbType.NVarChar, ForCollege.College_Number);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);

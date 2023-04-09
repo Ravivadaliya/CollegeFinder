@@ -137,6 +137,9 @@ namespace CollegeFinder.Areas.College.Controllers
                         ForCollege.Totalseat = Convert.ToInt32(dr["Totalseat"]);
                         ForCollege.latitude = dr["latitude"].ToString();
                         ForCollege.longitude = dr["longitude"].ToString();
+                        ForCollege.College_image = dr["College_image"].ToString();
+                        ForCollege.College_Website = dr["College_Website"].ToString();
+                        ForCollege.College_Number = dr["College_Number"].ToString();
 
                     }
                     return View("CollegeAddEdit", ForCollege);
