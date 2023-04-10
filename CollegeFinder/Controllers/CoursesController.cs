@@ -8,5 +8,10 @@ namespace CollegeFinder.Controllers
         {
             return View();
         }
+
+        public IActionResult SingleCourse()
+        {
+            return View();
+        }
     }
 }
