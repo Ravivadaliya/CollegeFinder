@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CollegeFinder.DAL;
-
 using System.Configuration;
 using CollegeFinder.Models;
 

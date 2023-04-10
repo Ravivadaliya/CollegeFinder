@@ -2,9 +2,9 @@
 
 namespace CollegeFinder.Controllers
 {
-    public class Courses : Controller
+    public class CoursesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult AllCourses()
         {
             return View();
         }

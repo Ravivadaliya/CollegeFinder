@@ -4,12 +4,12 @@ using System.Configuration;
 using CollegeFinder.Models;
 namespace CollegeFinder.Controllers
 {
-    public class Contact_Send : Controller
+    public class Contact_SendController : Controller
     {
         private IConfiguration Configuration;
 
 
-        public Contact_Send(IConfiguration _configuration)
+        public Contact_SendController(IConfiguration _configuration)
         {
             Configuration = _configuration;
         }

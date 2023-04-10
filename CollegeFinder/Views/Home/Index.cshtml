@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="search-top">
+@*<div class="search-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
- 
+ *@
 <!--END HEADER SECTION-->
 <!-- SLIDER -->
 <section>
@@ -94,9 +94,8 @@
                         <a href="admission.html" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic2.png" alt=""> Admission</a>
                     </li>
                     <li>
-                        <a href="all-courses.html" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic4.png" alt=""> Courses</a>
+                        <a asp-controller="Courses" asp-action="AllCourses"  class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic4.png" alt=""> Courses</a>
                     </li>
-                    
                 </ul>
             </div>
         </div>
