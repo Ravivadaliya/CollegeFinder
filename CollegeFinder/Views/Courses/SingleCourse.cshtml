@@ -1,4 +1,8 @@
-﻿  <div class="search-top">
+﻿@using System.Data;
+@model DataTable
+
+
+<div class="search-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -38,7 +42,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    
     <!--END HEADER SECTION-->
 
     <!--SECTION START-->
@@ -46,102 +50,7 @@
         <div class="container com-sp pad-bot-70 pg-inn">
             <div class="row">
                 <div class="cor">
-                    <div class="col-md-3">
-                        <div class="cor-top-deta cor-side-com">
-                            <div class="cor-top-deta">
-                                <div class="ho-st-login cor-apply field-com">
-                                    <div class="col s12">
-                                        <form class="col s12">
-                                            <div class="cor-left-app-tit">
-                                                <h4>Apply This Course</h4>
-                                                <p>Nulla at velit convallis lectus.</p>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input type="text" class="validate">
-                                                    <label>Full Name</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input type="text" class="validate">
-                                                    <label>Email id</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input type="text" class="validate">
-                                                    <label>Phone</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <select>
-									  <option value="" disabled selected>Select Course</option>
-									  <option value="1">Option 1</option>
-									  <option value="2">Option 2</option>
-									  <option value="3">Option 3</option>
-									</select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input type="submit" value="APPLY NOW" class="waves-effect waves-light light-btn">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cor-side-com">
-                            <div class="">
-                                <div class="de-left-tit">
-                                    <h4>Upcoming Event</h4>
-                                </div>
-                            </div>
-                            <div class="ho-event">
-                                <ul>
-                                    <li>
-                                        <div class="ho-ev-link ho-ev-link-full">
-                                            <a href="#">
-                                                <h4>Workshop PHP</h4>
-                                            </a>
-                                            <p>Nulla at velit convallis venenatis.</p>
-                                            <span>9:15 am – 5:00 pm</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ho-ev-link ho-ev-link-full">
-                                            <a href="#">
-                                                <h4>Workshop PHP</h4>
-                                            </a>
-                                            <p>Nulla at velit convallis venenatis.</p>
-                                            <span>9:15 am – 5:00 pm</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ho-ev-link ho-ev-link-full">
-                                            <a href="#">
-                                                <h4>Workshop PHP</h4>
-                                            </a>
-                                            <p>Nulla at velit convallis venenatis.</p>
-                                            <span>9:15 am – 5:00 pm</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ho-ev-link ho-ev-link-full">
-                                            <a href="#">
-                                                <h4>Workshop PHP</h4>
-                                            </a>
-                                            <p>Nulla at velit convallis venenatis.</p>
-                                            <span>9:15 am – 5:00 pm</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="col-md-6">
                         <div class="cor-mid-img">
                             <img src="~/images/course.jpg" alt="">
@@ -196,104 +105,42 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="cor-p4">
-                                <h3>A typical weekly timetable:</h3>
-                                <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <ul class="collapsible" data-collapsible="accordion">
-                                    <li>
-                                        <div class="collapsible-header active">1st year</div>
-                                        <div class="collapsible-body cor-tim-tab">
-                                            <h4>First Year Courses</h4>
-                                            <ul>
-                                                <li>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</li>
-                                                <li>Anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</li>
-                                                <li>Combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem</li>
-                                                <li>Nullam tincidunt urna non porttitor luctus. Suspendisse sem urna, auctor ac commodo eu, bibendum sed nulla.</li>
-                                            </ul>
-                                            <h4>Assessment</h4>
-                                            <ul>
-                                                <li>Three written papers form the First University Examination, together with a submitted portfolio of two exam essays of 2,000 words for Introduction to English Language and Literature.</li>
-                                                <li>All exams must be passed, but marks do not count towards the final degree.</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">2st year</div>
-                                        <div class="collapsible-body cor-tim-tab">
-                                            <h4>Second Year Courses</h4>
-                                            <ul>
-                                                <li>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</li>
-                                                <li>Anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</li>
-                                                <li>Combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem</li>
-                                            </ul>
-                                            <h4>Assessment</h4>
-                                            <ul>
-                                                <li>Three written papers form the First University Examination, together with a submitted portfolio of two exam essays of 2,000 words for Introduction to English Language and Literature.</li>
-                                                <li>All exams must be passed, but marks do not count towards the final degree.</li>
-                                                <li>Combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">3st year</div>
-                                        <div class="collapsible-body cor-tim-tab">
-                                            <h4>Third Year Courses</h4>
-                                            <ul>
-                                                <li>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</li>
-                                                <li>Anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</li>
-                                            </ul>
-                                            <h4>Assessment</h4>
-                                            <ul>
-                                                <li>Three written papers form the First University Examination, together with a submitted portfolio of two exam essays of 2,000 words for Introduction to English Language and Literature.</li>
-                                                <li>All exams must be passed, but marks do not count towards the final degree.</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="cor-p6">
-                                <h3>Student Reviews</h3>
-                                <div class="cor-p6-revi">
-                                    <div class="cor-p6-revi-left">
-                                        <img src="~/images/4.jpg" alt="">
-                                    </div>
-                                    <div class="cor-p6-revi-right">
-                                        <h4>Rachel Britain</h4>
-                                        <span>Date: 12may, 2017</span>
-                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
-                                    </div>
-                                </div>
-                                <div class="cor-p6-revi">
-                                    <div class="cor-p6-revi-left">
-                                        <img src="~/images/4.jpg" alt="">
-                                    </div>
-                                    <div class="cor-p6-revi-right">
-                                        <h4>Rachel Britain</h4>
-                                        <span>Date: 12may, 2017</span>
-                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
-                                    </div>
-                                </div>
-                                <div class="cor-p6-revi">
-                                    <div class="cor-p6-revi-left">
-                                        <img src="~/images/4.jpg" alt="">
-                                    </div>
-                                    <div class="cor-p6-revi-right">
-                                        <h4>Rachel Britain</h4>
-                                        <span>Date: 12may, 2017</span>
-                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
-                                    </div>
-                                </div>
-                                <div class="cor-p6-revi">
-                                    <div class="cor-p6-revi-left">
-                                        <img src="~/images/4.jpg" alt="">
-                                    </div>
-                                    <div class="cor-p6-revi-right">
-                                        <h4>Rachel Britain</h4>
-                                        <span>Date: 12may, 2017</span>
-                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">College_Name</th>
+                                        <th class="text-center">collegeType</th>
+                                        <th class="text-center">Total student</th>
+                                        <th class="text-center">Courses</th>
+                                        <th class="text-center">Average_Fees</th>
+                                        <th class="text-center" >Totalseat</th>
+                                        <th class="text-center">Edit</th>
+                                        <th class="text-center">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (DataRow dr in Model.Rows)
+                                    {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@dr["College_Name"]</td>
+                                            <td>@dr["collegeType"]</td>
+                                            <td>@dr["Total_Student_Enrollments"]</td>
+                                            <td>@dr["Courses"]</td>
+                                            <td>@dr["Average_Fees"]</td>
+                                            <td>@dr["Totalseat"]</td>
+                                           
+                                        </tr>
+                                        i++;
+                                    }
+                                </tbody>
+                            </table>
+                          
                             <div class="cor-p6">
                                 <h3>Write Reviews</h3>
 
@@ -320,67 +167,20 @@
                                                 <input type="submit" value="Submit" class="waves-effect waves-light btn-book">
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="cor-side-com">
-                            <div class="ho-ev-latest ho-ev-latest-bg-3">
-                                <div class="ho-lat-ev">
-                                    <h4>Student Login</h4>
-                                    <p>Student area velit convallis venenatis lacus quis, efficitur lectus.</p>
-                                </div>
+                     <div class="col-md-6">
+                        <div class="cor-top-deta cor-side-com">
+                            <div class="cor-top-deta">
+                              
+                                 <div class="cor-p1">
+                                <h2>Google map Here</h2>
+                                <span>Category: Software Testing</span>
+                              
                             </div>
-                            <div class="ho-st-login">
-                                <div class="col s12">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input type="text" class="validate">
-                                                <label>Student user name</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input type="password" class="validate">
-                                                <label>Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input type="submit" value="Login" class="waves-effect waves-light light-btn">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cor-side-com">
-                            <div class="ho-ev-latest ho-ev-latest-bg-2">
-                                <div class="ho-lat-ev">
-                                    <a href="#">
-                                        <h4>Job Vacants</h4>
-                                        <p>Nulla at velit convallis, venenatis lacus quis, efficitur lectus.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ho-ev-latest in-ev-latest-bg-1">
-                                <div class="ho-lat-ev">
-                                    <a href="#">
-                                        <h4>Job Vacants</h4>
-                                        <p>Nulla at velit convallis, venenatis lacus quis, efficitur lectus.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ho-ev-latest in-ev-latest-bg-1">
-                                <div class="ho-lat-ev">
-                                    <a href="#">
-                                        <h4>Job Vacants</h4>
-                                        <p>Nulla at velit convallis, venenatis lacus quis, efficitur lectus.</p>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -389,3 +189,35 @@
         </div>
     </section>
     <!--SECTION END-->
+
+
+    <div id="dvMap" style="width: 100%; height: 400px"></div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAH_iEsi4Ir2wGeXSWaVWUizZ9sK064gl8"></script>
+<script type="text/javascript">
+    var markers = @Html.Raw(ViewBag.Markers);
+    window.onload = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 5,    
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+
+        for (i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    infoWindow.setContent(data.description);
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
