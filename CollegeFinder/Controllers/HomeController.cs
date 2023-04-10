@@ -23,11 +23,11 @@ namespace CollegeFinder.Controllers
             return View();
         }
 
-        public IActionResult ContactUs()
+        public IActionResult About()
         {
             return View();
         }
-        public IActionResult About()
+        public IActionResult Admission()
         {
             return View();
         }

@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using CollegeFinder.DAL;
+﻿using CollegeFinder.DAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Configuration;
 using CollegeFinder.Models;
-
 namespace CollegeFinder.Controllers
 {
-    public class ContactUsController : Controller
+    public class Contact_Send : Controller
     {
         private IConfiguration Configuration;
 
 
-        public ContactUsController(IConfiguration _configuration)
+        public Contact_Send(IConfiguration _configuration)
         {
             Configuration = _configuration;
         }
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
         public IActionResult ContactUs()
         {
             return View();
@@ -34,7 +38,7 @@ namespace CollegeFinder.Controllers
             }
             else
             {
-                TempData["AlertMsg"] = "Not Send Properly";
+                    TempData["AlertMsg"] = "Not Send Properly";
             }
 
 

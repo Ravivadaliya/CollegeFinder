@@ -1,5 +1,106 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@model CollegeFinder.Models.Contact_SendModel;
+
+<div class="search-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-form">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!--END HEADER SECTION-->
+<!--SECTION START-->
+<section>
+
+    <div class="container com-sp pad-bot-70">
+        <div class="row">
+            <div class="cor about-sp">
+               
+
+                <div class="ed-about-tit">
+                    <div class="con-title">
+                        <h2>Contact <span> Us</span></h2>
+                        <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
+                    </div>
+                </div>
+    
+                <div class="pg-contact">
+                    
+                    <div class="col-md-4 col-sm-6 col-xs-12 new-con new-con1">
+                        <img src="img/contact/1.html" alt="">
+                        <h4>Address</h4>
+                        <p>
+                            28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.
+                            <br>Landmark : Next To Airport
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 new-con new-con3">
+                        <img src="img/contact/2.html" alt="">
+                        <h4>CONTACT INFO:</h4>
+                        <p>
+                            <a href="tel://0099999999" class="contact-icon">Phone: 01 234874 965478</a>
+                            <br> <a href="tel://0099999999" class="contact-icon">Mobile: 01 654874 965478</a>
+                            <br> <a href="mailto:mytestmail@gmail.com" class="contact-icon">Email: info@company.com</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 new-con new-con4">
+                        <img src="img/contact/3.html" alt="">
+                        <h4>Website</h4>
+                        <p>
+                            <a href="#">Website: www.mycompany.com</a>
+                            <br> <a href="#">Facebook: www.facebook/my</a>
+                            <br> <a href="#">Blog: www.blog.mycompany.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--SECTION END-->
+
+<section id="map">
+    <div class="row contact-map">
+        <!-- IFRAME: GET YOUR LOCATION FROM GOOGLE MAP -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.9567499693494!2d70.77984337882197!3d22.430653626975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c7a3ba783351%3A0x28dc6eea8324e9d2!2sDarshan%20University!5e0!3m2!1sen!2sin!4v1681120608995!5m2!1sen!2sin" width={100%} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="container">
+            <div class="overlay-contact footer-part footer-part-form">
+                <div class="map-head">
+                    <p>Send Us Now</p>
+                    <h2>GetIn Touch</h2> <span class="footer-ser-re">Fill Form Contact With us</span>
+                </div>
+                <!-- ENQUIRY FORM -->
+                <h4 class="alert text-success">@TempData["AlertMsg"]</h4>
+                <form id="contact_form"  asp-controller="ContactUs" asp-action="Save" >
+                    <ul>
+                        <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                            <input type="text" id="f1" asp-for="Name" placeholder="Name" required="">
+                        </li>
+                        <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                            <input type="text" id="f2" asp-for="Email" placeholder="Email" required="">
+                        </li>
+                        <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                            <input type="text" id="f3" asp-for="City" placeholder="City" required="">
+                        </li>
+                        <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                            <input type="text" id="f4"asp-for="Country" placeholder="Country" required="">
+                        </li>
+                        <li class="col-md-12 col-sm-12 col-xs-12 contact-input-spac">
+                            <textarea id="f5" asp-for="Message"  required=""></textarea>
+                        </li>
+                       
+
+                        <li class="col-md-6">
+                            <input type="submit" value="SUBMIT">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
