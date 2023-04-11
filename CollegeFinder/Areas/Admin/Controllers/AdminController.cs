@@ -4,6 +4,7 @@ using CollegeFinder.DAL;
 using System.Data;
 using CollegeFinder.BAL;
 using CollegeFinder.Areas.College.Models;
+using System.Data.SqlClient;
 
 namespace CollegeFinder.Areas.Admin.Controllers
 {
@@ -75,8 +76,34 @@ namespace CollegeFinder.Areas.Admin.Controllers
                 TempData["Error"] = error;
                 return RedirectToAction("SubLogin");
             }
-            
+        }
+        public IActionResult Dashboard()
+        {
+            string markers = "[";
+            string conString = this.Configuration.GetConnectionString("myConnectionStrings");
+            SqlCommand cmd = new SqlCommand("select * FROM CollegeLatLong");
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                cmd.Connection = con;
+                con.Open();
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        markers += "{";
+                        markers += string.Format("'title': '{0}',", sdr["College_name"]);
+                        markers += string.Format("'lat': '{0}',", sdr["latitude"]);
+                        markers += string.Format("'lng': '{0}',", sdr["longitude"]);
+                        markers += "},";
+                    }
+                }
+                con.Close();
+            }
 
+            markers += "];";
+            ViewBag.Markers = markers;
+
+            return View();
         }
 
         [HttpPost]
@@ -122,7 +149,7 @@ namespace CollegeFinder.Areas.Admin.Controllers
                 if (HttpContext.Session.GetString("AdminEmail") != null && HttpContext.Session.GetString("Adminpassword") != null)
                 {
 
-                    return RedirectToAction("Dashboard", "User", new { Area = "User" });
+                    return RedirectToAction("Dashboard", "Admin", new { Area = "Admin" });
                 }
             }
             return RedirectToAction("AdminIndex");

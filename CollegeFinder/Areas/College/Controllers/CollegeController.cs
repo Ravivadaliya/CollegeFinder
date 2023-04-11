@@ -160,7 +160,28 @@ namespace CollegeFinder.Areas.College.Controllers
         public IActionResult Save(CollegeModel Forcollege)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
+
+            //if (modelHMS_Room.File1 != null)
+            //{
+            //    string FilePath = "wwwroot\\Upload";
+            //    string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+            //    if (!Directory.Exists(path))
+            //        Directory.CreateDirectory(path);
+
+            //    string fileNamewithPath = Path.Combine(path, modelHMS_Room.File1.FileName);
+            //    modelHMS_Room.RoomPhoto = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + modelHMS_Room.File1.FileName;
+
+            //    using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
+            //    {
+            //        modelHMS_Room.File1.CopyTo(stream);
+            //    }
+            //}
+
+
+
             AllData Fordata= new AllData();
+
             if (Forcollege.Collegeid==null)
             {
 
