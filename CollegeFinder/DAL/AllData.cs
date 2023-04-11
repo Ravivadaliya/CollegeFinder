@@ -249,6 +249,9 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "College_image", SqlDbType.NVarChar, ForCollege.College_image);
                 sqlDB.AddInParameter(dbCMD, "College_Website", SqlDbType.NVarChar, ForCollege.College_Website);
                 sqlDB.AddInParameter(dbCMD, "College_Number", SqlDbType.NVarChar, ForCollege.College_Number);
+                sqlDB.AddInParameter(dbCMD, "iframemap", SqlDbType.NVarChar, ForCollege.iframemap);
+                sqlDB.AddInParameter(dbCMD, "iframeheight", SqlDbType.NVarChar, ForCollege.iframeheight);
+                sqlDB.AddInParameter(dbCMD, "iframewidth", SqlDbType.NVarChar, ForCollege.iframewidth);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);
@@ -289,6 +292,9 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "College_image", SqlDbType.NVarChar, ForCollege.College_image);
                 sqlDB.AddInParameter(dbCMD, "College_Website", SqlDbType.NVarChar, ForCollege.College_Website);
                 sqlDB.AddInParameter(dbCMD, "College_Number", SqlDbType.NVarChar, ForCollege.College_Number);
+                sqlDB.AddInParameter(dbCMD, "iframemap", SqlDbType.NVarChar, ForCollege.iframemap);
+                sqlDB.AddInParameter(dbCMD, "iframeheight", SqlDbType.NVarChar, ForCollege.iframeheight);
+                sqlDB.AddInParameter(dbCMD, "iframewidth", SqlDbType.NVarChar, ForCollege.iframewidth);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);

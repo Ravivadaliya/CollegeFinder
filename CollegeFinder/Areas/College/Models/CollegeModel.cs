@@ -109,5 +109,10 @@ namespace CollegeFinder.Areas.College.Models
         public string College_Website { get; set; }
 
         public string College_Number { get; set; }
+
+
+        public string? iframemap { get; set; }
+        public string? iframeheight { get; set; }
+        public string? iframewidth { get; set; }
     }
 }

@@ -140,6 +140,9 @@ namespace CollegeFinder.Areas.College.Controllers
                         ForCollege.College_image = dr["College_image"].ToString();
                         ForCollege.College_Website = dr["College_Website"].ToString();
                         ForCollege.College_Number = dr["College_Number"].ToString();
+                        ForCollege.iframemap = dr["iframemap"].ToString();
+                        ForCollege.iframeheight = dr["iframeheight"].ToString();
+                        ForCollege.iframewidth = dr["iframewidth"].ToString();
 
                     }
                     return View("CollegeAddEdit", ForCollege);
