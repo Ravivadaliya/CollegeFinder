@@ -9,28 +9,28 @@ using System.Data;
 
 namespace CollegeFinder.Controllers
 {
-    public class CoursesController : Controller
+    public class CollegeController : Controller
     {
         private IConfiguration Configuration;
 
 
-        public CoursesController(IConfiguration _configuration)
+        public CollegeController(IConfiguration _configuration)
         {
             Configuration = _configuration;
         }
 
-        public IActionResult AllCourses()
+        public IActionResult AllColleges()
         {
 
             string connstr = Configuration.GetConnectionString("myConnectionStrings");
             Client admindal = new Client();
             DataTable dt = admindal.College_SelectAll(connstr);
-            return View("AllCourses", dt);
+            return View("AllColleges", dt);
         }
 
 
 
-        public IActionResult SingleCourse()
+        public IActionResult SingleCollege()
         {
             string markers = "[";
             string conString = this.Configuration.GetConnectionString("myConnectionStrings");
@@ -59,7 +59,7 @@ namespace CollegeFinder.Controllers
             string connstr = Configuration.GetConnectionString("myConnectionStrings");
             Client admindal = new Client();
             DataTable dt = admindal.College_SelectAll(connstr);
-            return View("SingleCourse", dt);
+            return View("SingleCollege", dt);
 
         }
 
