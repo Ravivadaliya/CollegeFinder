@@ -143,7 +143,7 @@ namespace CollegeFinder.Areas.College.Controllers
                         ForCollege.iframemap = dr["iframemap"].ToString();
                         ForCollege.iframeheight = dr["iframeheight"].ToString();
                         ForCollege.iframewidth = dr["iframewidth"].ToString();
-
+                        ForCollege.Imagepath = dr["Imagepath"].ToString();
                     }
                     return View("CollegeAddEdit", ForCollege);
                 }
@@ -161,24 +161,22 @@ namespace CollegeFinder.Areas.College.Controllers
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
 
-            //if (modelHMS_Room.File1 != null)
-            //{
+            ////if (Forcollege.File1 != null)
+            ////{
             //    string FilePath = "wwwroot\\Upload";
             //    string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
 
             //    if (!Directory.Exists(path))
             //        Directory.CreateDirectory(path);
 
-            //    string fileNamewithPath = Path.Combine(path, modelHMS_Room.File1.FileName);
-            //    modelHMS_Room.RoomPhoto = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + modelHMS_Room.File1.FileName;
+            //    string fileNamewithPath = Path.Combine(path, Forcollege.File1.FileName);
+            //    Forcollege.Imagepath= "~" + FilePath.Replace("wwwroot\\", "/") + "/" + Forcollege.File1.FileName;
 
             //    using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
             //    {
-            //        modelHMS_Room.File1.CopyTo(stream);
+            //        Forcollege.File1.CopyTo(stream);
             //    }
-            //}
-
-
+            ////}
 
             AllData Fordata= new AllData();
 

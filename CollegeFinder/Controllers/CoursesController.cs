@@ -21,9 +21,12 @@ namespace CollegeFinder.Controllers
 
         public IActionResult AllCourses()
         {
-            return View();
-        }
 
+            string connstr = Configuration.GetConnectionString("myConnectionStrings");
+            Client admindal = new Client();
+            DataTable dt = admindal.College_SelectAll(connstr);
+            return View("AllCourses", dt);
+        }
 
 
 

@@ -252,6 +252,7 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "iframemap", SqlDbType.NVarChar, ForCollege.iframemap);
                 sqlDB.AddInParameter(dbCMD, "iframeheight", SqlDbType.NVarChar, ForCollege.iframeheight);
                 sqlDB.AddInParameter(dbCMD, "iframewidth", SqlDbType.NVarChar, ForCollege.iframewidth);
+                sqlDB.AddInParameter(dbCMD, "Imagepath", SqlDbType.NVarChar, ForCollege.Imagepath);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);

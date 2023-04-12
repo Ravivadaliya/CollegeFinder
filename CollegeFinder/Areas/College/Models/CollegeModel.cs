@@ -101,12 +101,13 @@ namespace CollegeFinder.Areas.College.Models
         [Required]
         [Display(Name = "Longitude")]
         [StringLength(10, MinimumLength = 5)]
+
         public string longitude { get; set; }
 
-        public IFormFile? Imagepath { get; set; }
+        public IFormFile? File1{ get; set; }
 
-        public string? Collegelogo { get; set; }
-        
+        public string? Imagepath { get; set; }
+
         public string College_image { get; set; }
 
         public string College_Website { get; set; }
