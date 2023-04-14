@@ -122,7 +122,7 @@ namespace CollegeFinder.DAL
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("studentselectall");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[studentselectall]");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))

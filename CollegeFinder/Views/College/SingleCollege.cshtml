@@ -33,7 +33,7 @@
                             <h2 style="color:red">@dr["College_Name"]</h2>
 
                             <div class="cor-p5">
-                                <h3>Course Syllabus</h3>
+                                <h3>College Details</h3>
                                 <ul class="nav nav-tabs">
                                     <li class="active">
                                         <a data-toggle="tab" href="#home">
@@ -112,7 +112,7 @@
                                     </div>
                                     <div id="menu2" class="tab-pane fade">
                                         <h4>Click Here For Admission</h4>
-                                        <a asp-controller="College" asp-action="Admission" style="color:white" class="btn btn-primary">Apply For Admission</a>
+                                        <a asp-controller="College" asp-action="Admission" asp-route-Collegeid="@Convert.ToInt32(dr["Collegeid"])" style="color:white" class="btn btn-primary">Apply For Admission</a>
 
                                     </div>
                                 </div>
