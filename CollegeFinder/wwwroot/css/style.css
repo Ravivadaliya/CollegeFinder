@@ -2742,7 +2742,9 @@
  .udb-sec{
      position: relative;
      overflow: hidden;
-     margin-bottom: 35px;
+     margin-top:12px;
+     /*margin-bottom: 35px;*/
+     margin-top:12px;
      background: #fff;
      padding: 25px;
      border-radius: 2px;
@@ -2757,9 +2759,9 @@
      color: #203245;
 }
  .udb-sec h4 img{
-     margin-right: 10px;
+     margin-right: 10px;    
      vertical-align: bottom;
-     width:24px;
+     width:30px;
 }
  .udb-sec p{
 }

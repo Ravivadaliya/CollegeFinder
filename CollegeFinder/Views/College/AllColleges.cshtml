@@ -29,7 +29,7 @@
     <div class="container com-sp pad-bot-70">
         <div class="row">
             <div class="con-title">
-                <h2>All <span>College</span></h2>
+                <h2>All <span>College/University</span></h2>
                 <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
             </div>
         </div>
@@ -43,18 +43,18 @@
                         <div class="home-top-cour">
                             <!--POPULAR COURSES IMAGE-->
                             <div>
-                                <div class="col-md-3">
-                                    <img style="margin-top:100px" src="https://darshan.ac.in/Content/media/DU_Logo.svg" alt="">
+                                <div class="col-md-2">
+                                    <img style="margin-top:140px" src="https://darshan.ac.in/Content/media/DU_Logo.svg" alt="">
                                 </div>
 
                             </div>
                             <!--POPULAR COURSES: CONTENT-->
-                            <div class="col-md-6 home-top-cour-desc">
+                            <div class="col-md-7 home-top-cour-desc">
                                 <a href="course-details.html">
                                     <h2>@dr["College_Name"]</h2>
                                 </a>
                                 <h5>@dr["City"], @dr["State"]</h5>
-                                <hr />
+
                                 <p></p> <span class="home-top-cour-rat"> <i class="fa fa-rating" aria-hidden="true"></i>@dr["Rating"]</span>
                                <div class="pro-con-table">
                                 <table class="bordered responsive-table">
@@ -72,7 +72,7 @@
                                             <td>Rs @dr["Average_Fees"]/-</td>
                                         </tr>
                                         <tr>
-                                            <td>Website :</td>
+                                            <td>Website :</td>  
                                             <td>@dr["College_Website"]</td>
                                         </tr>
                                         <tr>
@@ -87,68 +87,20 @@
 
                                 <div class="hom-list-share">
                                     <ul>
-                                        <li><a asp-controller="College" asp-action="SingleCollege"><i class="fa fa-bar-chart" aria-hidden="true"></i> More</a> </li>
-                                        <li><a><i class="fa fa-eye" aria-hidden="true"></i>10 Aavailable</a> </li>
+                                        <li><a asp-controller="College" asp-action="SingleCollege"><i class="fa fa-bar-chart" aria-hidden="true"></i> More Info..</a> </li>
+                                        <li><a><i class="fa fa-eye" aria-hidden="true"></i>@dr["Totalseat"] Aavailable</a> </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="col-md-2">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.9567485712596!2d70.78213937497189!3d22.430653679593036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c7a3ba783351%3A0x28dc6eea8324e9d2!2sDarshan%20University!5e0!3m2!1sen!2sin!4v1681226800574!5m2!1sen!2sin" width="@dr["iframewidth"]" height="@dr["iframeheight"]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="@dr["iframemap"]" width="@dr["iframewidth"]" height="@dr["iframeheight"]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
                 }
 
 
-
-                <div class="container">
-                    <!--POPULAR COURSES-->
-                    <div class="home-top-cour">
-                        <!--POPULAR COURSES IMAGE-->
-                        <div class="col-md-2"> <img src="~/images/Marvadi1.png" alt=""><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.9567485712596!2d70.78213937497189!3d22.430653679593036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c7a3ba783351%3A0x28dc6eea8324e9d2!2sDarshan%20University!5e0!3m2!1sen!2sin!4v1681226800574!5m2!1sen!2sin" width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-
-                        <div class="col-md-9 home-top-cour-desc">
-                            <a href="course-details.html">
-                                <h3>Darshan institute Of Engineering And Technology</h3>
-                            </a>
-                            <h3>Rajkot, Gujarat</h3>
-                            <hr />
-                            @*<p>Classes started from coming friday(21 jun 2017),total seats 72 and available seats 10</p> <span class="home-top-cour-rat">4.2</span>*@
-
-
-                            <table>
-                                <tr>
-                                    <td>Bechelore Of Engineering</td>
-                                </tr>
-                                <tr>
-                                    <td>Duration :</td>
-                                    <td>4 Years</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Fees :</td>
-                                    <td>Rs 2,24,000/-</td>
-                                </tr>
-                                <tr>
-                                    <td>Website :</td>
-                                    <td>https://darshan.ac.in/</td>
-                                </tr>
-                                <tr>
-                                    <td>Placement : </td>
-                                    <td>2000000</td>
-                                </tr>
-                            </table>
-
-
-                            <div class="hom-list-share">
-                                <ul>
-                                    <li><a asp-controller="Courses" asp-action="SingleCourse"><i class="fa fa-bar-chart" aria-hidden="true"></i> Apply Now</a> </li>
-                                    <li><a><i class="fa fa-eye" aria-hidden="true"></i>10 Aavailable</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

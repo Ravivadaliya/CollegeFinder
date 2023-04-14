@@ -2,6 +2,7 @@
 using CollegeFinder.DAL;
 using System.Configuration;
 using CollegeFinder.Models;
+using System.Data;
 
 namespace CollegeFinder.Controllers
 {
@@ -16,6 +17,7 @@ namespace CollegeFinder.Controllers
         }
         public IActionResult ContactUs()
         {
+           
             return View();
         }
 
@@ -38,8 +40,7 @@ namespace CollegeFinder.Controllers
 
 
             return RedirectToAction("ContactUs");
-
-
         }
+
     }
 }

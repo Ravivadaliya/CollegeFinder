@@ -55,6 +55,20 @@ namespace CollegeFinder.DAL
         }
 
 
+        public DataTable ContactUs_Selectall(string conn)
+        {
+            SqlDatabase sqlDB = new SqlDatabase(conn);
+            DbCommand dbCMD = sqlDB.GetStoredProcCommand("[ContactUs_Selectall]");
+
+            DataTable dt = new DataTable();
+            using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+            {
+                dt.Load(dr);
+            }
+            return dt;
+
+        }
+
 
     }
 }
