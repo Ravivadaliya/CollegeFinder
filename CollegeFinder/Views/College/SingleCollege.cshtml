@@ -1,163 +1,137 @@
 ﻿@using System.Data;
 @model DataTable
 
+@foreach (DataRow dr in Model.Rows)
+{
 
-
-<section>
-    <div class="head-2">
-        <div class="container">
-            <div class="head-2-inn head-2-inn-padd-top">
-                <h1>Darshan Institute Of Engineering And Technology</h1>
-                @*<p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>*@
-                @*<div class="event-head-sub">
+    <section>
+        <div class="head-2">
+            <div class="container">
+                <div class="head-2-inn head-2-inn-padd-top">
+                    <h1>@dr["College_Name"]</h1>
+                    @*<p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>*@
+                    @*<div class="event-head-sub">
                 <ul>
                 <li>Students: 10,000</li>
                 </ul>
                 </div>*@
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!--SECTION START-->
-<section>
-    <div class="container com-sp pad-bot-70 pg-inn">
-        <div class="row">
-            <div class="cor">
-                <div class="col-md-7">
-                    <div class="cor-mid-img">
-                        <img src="~/images/Darshanbackground.jpg" alt="">
-                    </div>
-                    <div class="cor-con-mid">
-                        <h2 style="color:red">Darshan University</h2>
+    <!--SECTION START-->
+    <section>
+        <div class="container com-sp pad-bot-70 pg-inn">
+            <div class="row">
+                <div class="cor">
+                    <div class="col-md-7">
+                        <div class="cor-mid-img">
+                            <img src="~/images/Darshanbackground.jpg" alt="">
+                        </div>
+                        <div class="cor-con-mid">
+                            <h2 style="color:red">@dr["College_Name"]</h2>
 
-                        <div class="cor-p5">
-                            <h3>Course Syllabus</h3>
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a data-toggle="tab" href="#home">
-                                        <img src="~/images/icon/cor4.png" alt=""> <span>Details</span>
-                                    </a>
-                                </li>
-                                <li><a data-toggle="tab" href="#menu1"><img src="~/images/icon/cor3.png" alt=""><span>Fees</span></a></li>
-                                @*<li><a data-toggle="tab" href="#menu2"><img src="~/images/icon/cor1.png" alt=""><span>Student Profile</span></a></li>*@
-                                <li><a data-toggle="tab" href="#menu2"><img src="~/images/icon/cor5.png" alt=""><span>How to Apply</span></a></li>
-                            </ul>
+                            <div class="cor-p5">
+                                <h3>Course Syllabus</h3>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#home">
+                                            <img src="~/images/icon/cor4.png" alt=""> <span>Details</span>
+                                        </a>
+                                    </li>
+                                    <li><a data-toggle="tab" href="#menu1"><img src="~/images/icon/cor3.png" alt=""><span>Fees</span></a></li>
+                                    @*<li><a data-toggle="tab" href="#menu2"><img src="~/images/icon/cor1.png" alt=""><span>Student Profile</span></a></li>*@
+                                    <li><a data-toggle="tab" href="#menu2"><img src="~/images/icon/cor5.png" alt=""><span>How to Apply</span></a></li>
+                                </ul>
 
-                            <div class="tab-content">
-                                <div id="home" class="tab-pane fade in active">
-                                    <div class="udb-sec udb-cour-stat">
-                                        <h4> Details About College/University</h4>
-                                        <div class="pro-con-table">
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active">
+                                        <div class="udb-sec udb-cour-stat">
+                                            <h4> Details About College/University</h4>
+                                            <div class="pro-con-table">
 
-                                            <table class="bordered responsive-table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td> <h5> <h5>College/University : </h5> </h5> </td> 
-                                                        <td> <h5>Private University</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Courses : </h5> </td> 
-                                                        <td> <h5>bememaster</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Campus Size : </h5> </td> 
-                                                        <td> <h5>123 acres</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Facilites : </h5> </td> 
-                                                        <td> <h5>camera</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Total Student Enrollments : </h5> </td> 
-                                                        <td> <h5>Private University</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Established Year: </h5> </td> 
-                                                        <td> <h5>2002</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Gender Accepted : </h5> </td> 
-                                                        <td> <h5>Male | Female</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Location : </h5> </td> 
-                                                        <td> <h5>Rajkot , Gujarat ,India</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>College Type : </h5> </td> 
-                                                        <td> <h5>Engineering</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Max Placement : </h5> </td> 
-                                                        <td> <h5>20 Lakhs/-</h5> </td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <td> <h5>Website : </h5> </td> 
-                                                        <td> <h5> <a href="https://darshan.ac.in/" target="_blank">https://darshan.ac.in/</a></h5> </td> 
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                <table class="bordered responsive-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td> <h5> College/University : </h5> </td>
+                                                            <td> <h5>@dr["University"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Courses : </h5> </td>
+                                                            <td> <h5>@dr["Courses"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Campus Size : </h5> </td>
+                                                            <td> <h5>@dr["Campus_Size"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Facilites : </h5> </td>
+                                                            <td> <h5>@dr["Facilities"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Total Student Enrollments : </h5> </td>
+                                                            <td> <h5>@dr["Total_Student_Enrollments"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Established Year: </h5> </td>
+                                                            <td> <h5>@dr["Established_Year"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Gender Accepted : </h5> </td>
+                                                            <td> <h5>@dr["Genders_Accepted"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Location : </h5> </td>
+                                                            <td> <h5>@dr["City"], @dr["State"], @dr["Country"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>College Type : </h5> </td>
+                                                            <td> <h5>@dr["college_Type"]</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Max Placement : </h5> </td>
+                                                            <td> <h5>@dr["Placement"]/-</h5> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <h5>Website : </h5> </td>
+                                                            <td> <h5> <a href="@dr["College_Website"]" target="_blank">@dr["College_Website"]</a></h5> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
 
-                                <!--startmenu-->
-                                <div id="menu1" class="tab-pane fade">
-                                    <h4>Total Fees</h4>
-                                    <p>Total Fees of  Engineering is : Rs.73000/- per year.</p>
-                                </div>
-                                <div id="menu2" class="tab-pane fade">
-                                    <h4>Click Here For Admission</h4>
-                                    <a style="color:white" class="btn btn-primary">Apply For Admission</a>
+                                    <!--startmenu-->
+                                    <div id="menu1" class="tab-pane fade">
+                                        <h4>Total Fees</h4>
+                                        <p>Total Fees of  Engineering is : Rs.@dr["Average_Fees"]/- per year.</p>
+                                    </div>
+                                    <div id="menu2" class="tab-pane fade">
+                                        <h4>Click Here For Admission</h4>
+                                        <a asp-controller="College" asp-action="Admission" style="color:white" class="btn btn-primary">Apply For Admission</a>
 
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
-                        @*
-                        <div class="cor-p6">
-                        <h3>Admission</h3>
-                        <div class="cor-p7-revi">
-                        <form class="col s12">
-                        <div class="row">
-                        <div class="input-field col s6">
-                        <input type="text" class="validate">
-                        <label>Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                        <input type="text" class="validate">
-                        <label>Email id</label>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="input-field col s12">
-                        <textarea class="materialize-textarea"></textarea>
-                        <label>Message</label>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="input-field col s12">
-                        <input type="submit" value="Submit" class="waves-effect waves-light btn-book">
-                        </div>
-                        </div>
-                        </form>
-                        </div>
-                        </div>*@
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="cor-side-com">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.9567485712596!2d70.78213937497189!3d22.430653679593036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c7a3ba783351%3A0x28dc6eea8324e9d2!2sDarshan%20University!5e0!3m2!1sen!2sin!4v1681225489533!5m2!1sen!2sin" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div class="cor-side-com">
+                    <div class="col-md-5">
+                        <div class="cor-side-com">
+                            <iframe src="@dr["iframemap"]" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="cor-side-com">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-@*asp-controller="College" asp-action="Add" asp-route-Collegeid="@Convert.ToInt32(dr["Collegeid"])"*@
+}
+

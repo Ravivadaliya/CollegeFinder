@@ -28,39 +28,17 @@ namespace CollegeFinder.Controllers
             return View("AllColleges", dt);
         }
 
-
-
-        public IActionResult SingleCollege()
+        public IActionResult Admission()
         {
-            string markers = "[";
-            string conString = this.Configuration.GetConnectionString("myConnectionStrings");
-            SqlCommand cmd = new SqlCommand("select * from CollegeLatLong");
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                cmd.Connection = con;
-                con.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        markers += "{";
-                        markers += string.Format("'title': '{0}',", sdr["College_name"]);
-                        markers += string.Format("'lat': '{0}',", sdr["latitude"]);
-                        markers += string.Format("'lng': '{0}',", sdr["longitude"]);
-                        markers += "},";
-                    }
-                }
-                con.Close();
-            }
+            return View();
+        }
 
-            markers += "];";
-            ViewBag.Markers = markers;
-
+        public IActionResult SingleCollege(int? Collegeid)
+        {
             string connstr = Configuration.GetConnectionString("myConnectionStrings");
             Client admindal = new Client();
-            DataTable dt = admindal.College_SelectAll(connstr);
+            DataTable dt = admindal.College_SelectByPk(connstr,Collegeid);
             return View("SingleCollege", dt);
-
         }
 
        

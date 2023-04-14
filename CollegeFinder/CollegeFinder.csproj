@@ -18,6 +18,7 @@
     <Folder Include="Areas\CollegeType\Data\" />
     <Folder Include="Areas\College\Data\" />
     <Folder Include="Areas\student\Data\" />
+    <Folder Include="Views\Admission\" />
   </ItemGroup>
 
 </Project>
