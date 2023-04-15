@@ -42,11 +42,14 @@ namespace CollegeFinder.Controllers
             return View("SingleCollege", dt);
         }
 
+
+
+
         public IActionResult Search(CollegeModel college)
         {
             string str = this.Configuration.GetConnectionString("myConnectionStrings");
             SqlConnection conn2 = new SqlConnection(str);
-            conn2.Open();
+            conn2.Open();   
             SqlCommand cmd = conn2.CreateCommand();
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -71,14 +74,12 @@ namespace CollegeFinder.Controllers
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
             Client Fordata = new Client();
-
+            
             if (Convert.ToBoolean(Fordata.Student_Insert(connectionstr, admission)))
             {
-                TempData["AlertMsg"] = "Admission Successfully";
+                TempData["Admission"] = "Admission Successfully";
             }
-
-
-            return RedirectToAction("SingleCollege");
+            return RedirectToAction("Admission");
         }
 
 

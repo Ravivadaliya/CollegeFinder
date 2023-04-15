@@ -10,12 +10,12 @@ namespace CollegeFinder.DAL
     {
 
         #region user
-        public DataTable User_SelectAll(string conn)
+        public DataTable Contact_Send_SelectAll(string conn)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("userselectall");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[Contact_Send_selectlectall]");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -29,83 +29,14 @@ namespace CollegeFinder.DAL
                 return null;
             }
         }
-        public bool? userdelete(string conn, int? userid)
+
+        public bool? ContactSend_Delete(string conn, int? ContactId)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("userdelete");
-                sqlDB.AddInParameter(dbCMD, "userid", SqlDbType.Int, userid);
-                int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-        public DataTable user_selectByPk(string conn, int? userid)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("userselectByPk");
-                sqlDB.AddInParameter(dbCMD, "userid", SqlDbType.Int, userid);
-
-                DataTable dt = new DataTable();
-                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
-                {
-                    dt.Load(dr);
-                }
-
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        public bool? User_insert(string con, UserModel Foruser)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(con);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[userinsert]");
-                sqlDB.AddInParameter(dbCMD, "usename", SqlDbType.NVarChar, Foruser.usename);
-                sqlDB.AddInParameter(dbCMD, "usermobile", SqlDbType.NVarChar, Foruser.usermobile);
-                sqlDB.AddInParameter(dbCMD, "usermailid", SqlDbType.NVarChar, Foruser.usermailid);
-                sqlDB.AddInParameter(dbCMD, "usercity", SqlDbType.NVarChar, Foruser.usercity);
-                sqlDB.AddInParameter(dbCMD, "userstate", SqlDbType.NVarChar, Foruser.userstate);
-                sqlDB.AddInParameter(dbCMD, "usercountry", SqlDbType.NVarChar, Foruser.usercountry);
-                sqlDB.AddInParameter(dbCMD, "creationdate", SqlDbType.NVarChar, Foruser.creationdate);
-                sqlDB.AddInParameter(dbCMD, "modificationdate", SqlDbType.NVarChar, Foruser.modificationdate);
-                sqlDB.AddInParameter(dbCMD, "userpassword", SqlDbType.NVarChar, Foruser.userpassword);
-
-                int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-        public bool? User_Update(string con, UserModel Foruser)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(con);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[userupdate]");
-                sqlDB.AddInParameter(dbCMD, "userid", SqlDbType.Int, Foruser.userid);
-                sqlDB.AddInParameter(dbCMD, "usename", SqlDbType.NVarChar, Foruser.usename);
-                sqlDB.AddInParameter(dbCMD, "usermobile", SqlDbType.NVarChar, Foruser.usermobile);
-                sqlDB.AddInParameter(dbCMD, "usermailid", SqlDbType.NVarChar, Foruser.usermailid);
-                sqlDB.AddInParameter(dbCMD, "usercity", SqlDbType.NVarChar, Foruser.usercity);
-                sqlDB.AddInParameter(dbCMD, "userstate", SqlDbType.NVarChar, Foruser.userstate);
-                sqlDB.AddInParameter(dbCMD, "usercountry", SqlDbType.NVarChar, Foruser.usercountry);
-                sqlDB.AddInParameter(dbCMD, "modificationdate", SqlDbType.DateTime, Foruser.modificationdate);
-                sqlDB.AddInParameter(dbCMD, "userpassword", SqlDbType.NVarChar, Foruser.userpassword);
-
-
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("Contact_Send_delete");
+                sqlDB.AddInParameter(dbCMD, "ContactId", SqlDbType.Int, ContactId);
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);
             }
@@ -115,7 +46,6 @@ namespace CollegeFinder.DAL
             }
         }
 
-        #endregion
 
         public DataTable Student_SelectAll(string conn)
         {
@@ -155,12 +85,6 @@ namespace CollegeFinder.DAL
         }
 
 
-
-
-
-
-
-
         #region college
 
         public DataTable College_selectall(string conn)
@@ -192,7 +116,7 @@ namespace CollegeFinder.DAL
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return (vReturnValue == -1 ? false : true);
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 return null;
             }

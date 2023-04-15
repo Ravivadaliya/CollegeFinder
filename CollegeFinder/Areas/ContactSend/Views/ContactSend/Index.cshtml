@@ -51,17 +51,13 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" >userid</th>
-                                        <th class="text-center" >username</th>
-                                        <th class="text-center" >usermobile</th>
-                                        <th class="text-center" >usermailid</th>
-                                        <th class="text-center" >usercity</th>
-                                        <th class="text-center" >userstate</th>
-                                        <th class="text-center" >usercountry</th>
-                                        <th class="text-center" >userpassword</th>
-                                       @* <th class="text-center" >creationdate</th>
-                                        <th class="text-center">modificationdate</th>*@
-                                        <th class="text-center">Edit</th>
+                                        <th class="text-center" >ContactSend id</th>
+                                        <th class="text-center" >Name</th>
+                                        <th class="text-center">Email</th>
+                                        <th class="text-center">City</th>
+                                        <th class="text-center">Country</th>
+                                        <th class="text-center" >Message</th>
+                                        <th class="text-center">Creationdate</th>
                                         <th class="text-center">Delete</th>
                                     </tr>
                                 </thead>
@@ -69,23 +65,17 @@
                                     @foreach (DataRow dr in Model.Rows)
                                     {
                                         <tr>
-                                            <td>@dr["userid"]</td>
-                                            <td>@dr["usename"]</td>
-                                            <td>@dr["usermobile"]</td>
-                                            <td>@dr["usermailid"]</td>
-                                            <td>@dr["usercity"]</td>
-                                            <td>@dr["userstate"]</td>
-                                            <td>@dr["usercountry"]</td>
-                                            <td>@dr["userpassword"]</td>
-
+                                            <td>@dr["ContactId"]</td>
+                                            <td>@dr["Name"]</td>
+                                            <td>@dr["Email"]</td>
+                                            <td>@dr["City"]</td>
+                                            <td>@dr["Country"]</td>
+                                            <td>@dr["Message"]</td>
+                                            <td>@Convert.ToDateTime(dr["Creationdate"]).ToString("dd-MM-yyyy")</td>
                                             <td>
-                                                <a style="color:white" asp-area="User" asp-controller="User" asp-action="Add" asp-route-userid="@Convert.ToInt32(dr["userid"])" class="btn btn-primary">Edit</a>
-
-                                            </td>
-                                            <td>
-                                                <form method="post" asp-area="User" asp-controller="User" asp-action="Delete">
-                                                    <input type="hidden" name="userid" value="@Convert.ToInt32(dr["userid"])" />
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @dr["userid"]')">Delete</button>
+                                                <form method="post" asp-area="ContactSend" asp-controller="ContactSend" asp-action="Delete">
+                                                    <input type="hidden" name="ContactId" value="@Convert.ToInt32(dr["ContactId"])" />
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @dr["ContactId"]')">Delete</button>
                                                 </form>
 
                                             </td>

@@ -56,13 +56,13 @@ namespace CollegeFinder.DAL
 
 
 
-        public DataTable College_SelectByPk(string conn,int? Collegeid)
+        public DataTable College_SelectByPk(string conn, int? Collegeid)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("[CollegeSelectByPk]");
-                sqlDB.AddInParameter(dbCMD,"Collegeid",SqlDbType.Int,Collegeid);
+                sqlDB.AddInParameter(dbCMD, "Collegeid", SqlDbType.Int, Collegeid);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
@@ -76,25 +76,25 @@ namespace CollegeFinder.DAL
             }
         }
 
-        public DataTable College_Search(string conn, int? Collegeid)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[CollegeSelectByPk]");
-                sqlDB.AddInParameter(dbCMD, "Collegeid", SqlDbType.Int).value = ;
-                DataTable dt = new DataTable();
-                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
-                {
-                    dt.Load(dr);
-                }
-                return dt;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
+        //public DataTable College_Search(string conn, int? Collegeid)
+        //{
+        //    try
+        //    {
+        //        SqlDatabase sqlDB = new SqlDatabase(conn);
+        //        DbCommand dbCMD = sqlDB.GetStoredProcCommand("[CollegeSelectByPk]");
+        //        sqlDB.AddInParameter(dbCMD, "Collegeid", SqlDbType.Int).value = ;
+        //        DataTable dt = new DataTable();
+        //        using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+        //        {
+        //            dt.Load(dr);
+        //        }
+        //        return dt;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return null;
+        //    }
+        //}
 
 
 
@@ -111,7 +111,7 @@ namespace CollegeFinder.DAL
             return dt;
         }
 
-        public bool? Student_Insert(string con,AdmissionModel admission)
+        public bool? Student_Insert(string con, AdmissionModel admission)
         {
             try
             {
@@ -125,8 +125,17 @@ namespace CollegeFinder.DAL
                 sqlDB.AddInParameter(dbCMD, "state", SqlDbType.NVarChar, admission.State);
                 sqlDB.AddInParameter(dbCMD, "creationdate", SqlDbType.NVarChar, admission.Creationdate);
 
-                int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
+                Client cmd = new Client();
+                if ((bool)cmd.SeatDec(con, admission.Collegeid))
+                {
+                    int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
+                    return (vReturnValue == -1 ? false : true);
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             catch (Exception e)
             {
@@ -135,6 +144,22 @@ namespace CollegeFinder.DAL
 
         }
 
+        public bool? SeatDec(string con, int Collegeid)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(con);
+                DbCommand dbcmd = sqlDB.GetStoredProcCommand("Seatdec");
+                sqlDB.AddInParameter(dbcmd, "Collegeid", SqlDbType.Int, Collegeid);
+                int value = sqlDB.ExecuteNonQuery(dbcmd);
+                return (value == -1 ? false : true);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
         //public string Collegename_SelectByPk(string conn)
         //{
         //    try

@@ -5,7 +5,9 @@ using System.Data;
 using CollegeFinder.BAL;
 using CollegeFinder.Areas.College.Models;
 using System.Data.SqlClient;
-
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using System.Data.Common;   
+using System.Configuration;
 namespace CollegeFinder.Areas.Admin.Controllers
 {
 
@@ -81,27 +83,49 @@ namespace CollegeFinder.Areas.Admin.Controllers
         {
             string markers = "[";
             string conString = this.Configuration.GetConnectionString("myConnectionStrings");
-            SqlCommand cmd = new SqlCommand("select * FROM CollegeLatLong");
-            using (SqlConnection con = new SqlConnection(conString))
+            SqlDatabase sqlDB = new SqlDatabase(conString);
+            DbCommand dbCMD = sqlDB.GetStoredProcCommand("[selectalllatlang]");
+
+            DataTable dt = new DataTable();
+            using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
             {
-                cmd.Connection = con;
-                con.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
+                while (dr.Read())
                 {
-                    while (sdr.Read())
-                    {
-                        markers += "{";
-                        markers += string.Format("'title': '{0}',", sdr["College_name"]);
-                        markers += string.Format("'lat': '{0}',", sdr["latitude"]);
-                        markers += string.Format("'lng': '{0}',", sdr["longitude"]);
-                        markers += "},";
-                    }
+                    markers += "{";
+                    markers += string.Format("'title': '{0}',", dr["College_Name"]);
+                    markers += string.Format("'lat': '{0}',", dr["latitude"]);
+                    markers += string.Format("'lng': '{0}',", dr["longitude"]);
+                    markers += "},";
                 }
-                con.Close();
             }
 
             markers += "];";
             ViewBag.Markers = markers;
+
+
+
+
+            //SqlCommand cmd = new SqlCommand("SELECT * FROM ");
+            //using (SqlConnection con = new SqlConnection(conString))
+            //{
+            //    cmd.Connection = con;
+            //    con.Open();
+            //    using (SqlDataReader sdr = cmd.ExecuteReader())
+            //    {
+            //        while (sdr.Read())
+            //        {
+            //            markers += "{";
+            //            markers += string.Format("'title': '{0}',", sdr["College_Name"]);
+            //            markers += string.Format("'lat': '{0}',", sdr["latitude"]);
+            //            markers += string.Format("'lng': '{0}',", sdr["longitude"]);
+            //            markers += "},";
+            //        } 
+            //    }     
+            //    con.Close();
+            //}
+
+            //markers += "];";
+            //ViewBag.Markers = markers;
 
             return View();
         }
