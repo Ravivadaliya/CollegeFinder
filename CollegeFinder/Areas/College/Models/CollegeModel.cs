@@ -108,6 +108,8 @@ namespace CollegeFinder.Areas.College.Models
 
         public string? Imagepath { get; set; }
 
+
+
         public string College_image { get; set; }
 
         public string College_Website { get; set; }

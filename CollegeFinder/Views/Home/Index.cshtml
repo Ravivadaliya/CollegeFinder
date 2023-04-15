@@ -1,48 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@*<div class="search-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="search-form">
-                    <form>
-                        <div class="sf-type">
-                            <div class="sf-input">
-                                <input type="text" id="sf-box" placeholder="Search course and discount courses">
-                            </div>
-                            <div class="sf-list">
-                                <ul>
-                                    <li><a href="course-details.html">Accounting/Finance</a></li>
-                                    <li><a href="course-details.html">civil engineering</a></li>
-                                    <li><a href="course-details.html">Art/Design</a></li>
-                                    <li><a href="course-details.html">Marine Engineering</a></li>
-                                    <li><a href="course-details.html">Business Management</a></li>
-                                    <li><a href="course-details.html">Journalism/Writing</a></li>
-                                    <li><a href="course-details.html">Physical Education</a></li>
-                                    <li><a href="course-details.html">Political Science</a></li>
-                                    <li><a href="course-details.html">Sciences</a></li>
-                                    <li><a href="course-details.html">Statistics</a></li>
-                                    <li><a href="course-details.html">Web Design/Development</a></li>
-                                    <li><a href="course-details.html">SEO</a></li>
-                                    <li><a href="course-details.html">Google Business</a></li>
-                                    <li><a href="course-details.html">Graphics Design</a></li>
-                                    <li><a href="course-details.html">Networking Courses</a></li>
-                                    <li><a href="course-details.html">Information technology</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sf-submit">
-                            <input type="submit" value="Search Course">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- *@
-<!--END HEADER SECTION-->
+
 <!-- SLIDER -->
 <section>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -51,25 +10,17 @@
             <div class="item slider1 active">
                 <img src="~/images/slider/1.jpg" alt="">
                 <div class="carousel-caption slider-con">
-                    <h2>Welcome to <span>University</span></h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                    <a href="#" class="bann-btn-1">All Courses</a><a href="#" class="bann-btn-2">Read More</a>
+                    <h2>Welcome to <span>College Finder</span></h2>
+                    <p>Here you can easily fing a engineering colleges in india </p>
+                    <a asp-controller="College" asp-action="AllColleges" class="bann-btn-1">All College</a>
                 </div>
             </div>
             <div class="item">
                 <img src="~/images/slider/2.jpg" alt="">
                 <div class="carousel-caption slider-con">
-                    <h2>Admission open <span>2018</span></h2>
+                    <h2>Choose your <span>faveorite College </span></h2>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                    <a href="#" class="bann-btn-1">Admission</a><a href="#" class="bann-btn-2">Read More</a>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/images/slider/3.jpg" alt="">
-                <div class="carousel-caption slider-con">
-                    <h2>Education <span>Master</span></h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                    <a href="#" class="bann-btn-1">All Courses</a><a href="#" class="bann-btn-2">Read More</a>
+                    <a  asp-controller="College" asp-action="AllColleges"  class="bann-btn-1">Admission</a>
                 </div>
             </div>
         </div>
@@ -85,23 +36,20 @@
 </section>
 
 <!-- QUICK LINKS -->
-<section>
+@*<section>
     <div class="container">
         <div class="row">
             <div class="wed-hom-ser">
                 <ul>
                     <li>
-                        <a href="admission.html" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic2.png" alt=""> Admission</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Courses" asp-action="AllCourses"  class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic4.png" alt=""> Colleges</a>
+                        <a asp-controller="College" asp-action="AllColleges" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="~/images/icon/h-ic2.png" alt=""> Admission</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-
+*@
 
 <!-- POPULAR COURSES -->
 <section class="pop-cour">

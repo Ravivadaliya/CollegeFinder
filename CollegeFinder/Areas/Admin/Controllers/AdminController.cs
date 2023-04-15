@@ -13,8 +13,8 @@ namespace CollegeFinder.Areas.Admin.Controllers
     [Route("Admin/[controller]/[action]")]
     public class AdminController : Controller
     {
-
         private IConfiguration Configuration;
+
         public AdminController(IConfiguration _configuration)
         {
             Configuration = _configuration;

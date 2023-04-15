@@ -25,6 +25,17 @@ namespace CollegeFinder.BAL
             }
             return Adminid;
         }
+
+        public static string? Id()
+        {
+            string? Id = null;
+
+            if (_httpContextAccessor.HttpContext.Session.GetString("Adminid") != null)
+            {
+                Id = _httpContextAccessor.HttpContext.Session.GetString("Adminid").ToString();
+            }
+            return Id;
+        }
         public static string? Adminemail()
         {
             string? Adminemail = null;

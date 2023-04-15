@@ -1,6 +1,39 @@
 ﻿
 @model CollegeFinder.Models.Contact_SendModel;
 
+
+
+<section>
+    <div class="ed-mob-menu">
+        <div class="ed-mob-menu-con">
+            <div class="ed-mm-left">
+                <div class="wed-logo">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img style="height:50px" src="images/Darshanlogo2.jpg" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="ed-mm-right">
+                <div class="ed-mm-menu">
+                    <a href="#!" class="ed-micon"><i class="fa fa-bars"></i></a>
+                    <div class="ed-mm-inn">
+                        <a href="#!" class="ed-mi-close"><i class="fa fa-times"></i></a>
+                        <h4>Menu</h4>
+                        <ul>
+                            <li><a asp-controller="College" asp-action="AllColleges">All Colleges</a></li>
+                            <li><a asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a></li>
+                            <li><a asp-controller="AboutUs" asp-action="AboutUs">Abount Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <div class="search-top">
     <div class="container">
         <div class="row">

@@ -76,6 +76,26 @@ namespace CollegeFinder.DAL
             }
         }
 
+        public DataTable College_Search(string conn, int? Collegeid)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(conn);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[CollegeSelectByPk]");
+                sqlDB.AddInParameter(dbCMD, "Collegeid", SqlDbType.Int).value = ;
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
 
 
         public DataTable ContactUs_Selectall(string conn)

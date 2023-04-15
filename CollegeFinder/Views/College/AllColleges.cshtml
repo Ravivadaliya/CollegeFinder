@@ -7,10 +7,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-form">
-                    <form>
+                    <h4>@TempData["Noinput"]</h4>
+                    <form asp-controller="College" asp-action="Search" >
                         <div class="sf-type">
                             <div class="sf-input">
-                                <input type="text" id="sf-box" placeholder="Search course and discount courses">
+                                <input type="text" id="sf-box" name="Searchname" placeholder="Search course and discount courses">
                             </div>
 
                         </div>
