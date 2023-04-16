@@ -55,6 +55,8 @@ namespace CollegeFinder.Controllers
 
             if (college.Searchname == null)
             {
+
+                TempData["noinput"] = "Search Box Are empty";
                 Client cliendal = new Client();
                 DataTable dt = cliendal.College_SelectAll(str);
                 return View("AllColleges", dt);

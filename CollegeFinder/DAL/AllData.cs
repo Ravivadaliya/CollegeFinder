@@ -9,7 +9,7 @@ namespace CollegeFinder.DAL
     public class AllData
     {
 
-        #region user
+
         public DataTable Contact_Send_SelectAll(string conn)
         {
             try
