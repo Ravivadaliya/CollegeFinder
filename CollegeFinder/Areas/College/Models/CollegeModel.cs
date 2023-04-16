@@ -105,8 +105,9 @@ namespace CollegeFinder.Areas.College.Models
         public string longitude { get; set; }
 
         public IFormFile? File1{ get; set; }
+        public IFormFile? File2{ get; set; }
 
-        public string? Imagepath { get; set; }
+        public string Imagepath { get; set; }
 
 
 
@@ -119,5 +120,6 @@ namespace CollegeFinder.Areas.College.Models
         public string? iframemap { get; set; }
         public string? iframeheight { get; set; }
         public string? iframewidth { get; set; }
+
     }
 }

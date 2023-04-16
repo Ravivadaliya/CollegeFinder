@@ -39,8 +39,10 @@
                                     </div>
                                     <div class="bor">
 
-                                        <form asp-area="College" asp-controller="College" asp-action="Save">
+                                        <form asp-area="College" asp-controller="College" asp-action="Save" enctype="multipart/form-data">
                                             @Html.HiddenFor(x=>x.Collegeid)
+                                            @Html.HiddenFor(x=>x.College_image)
+                                            @Html.HiddenFor(x=>x.Imagepath)
                                             <div class="row">
 
                                              
@@ -166,7 +168,7 @@
                                                 </div>
                                                    <div class="input-field col s12">
                                                     <h5>College Images</h5>
-                                                    <input id="list-title" type="text" asp-for="College_image" class="validate">
+                                                    <input id="list-title" type="file" asp-for="File1" class="validate">
                                                    @* <span asp-validation-for="longitude" id="foralert" class="text-danger"></span>
                                                     <div class="form-control-focus"> </div>*@
                                                 </div>
@@ -200,12 +202,12 @@
                                                     <span asp-validation-for="iframewidth" id="foralert" class="text-danger"></span>
                                                     <div class="form-control-focus"> </div>
                                                 </div>
-                                               @* <div class="input-field col s12">
+                                                <div class="input-field col s12">
                                                     <h5>College Logo</h5>
-                                                    <input id="list-title" type="file" asp-for="Imagepath" class="validate">
+                                                    <input id="list-title" type="file" asp-for="File2" class="validate">
                                                     <span asp-validation-for="Imagepath" id="foralert" class="text-danger"></span>
                                                     <div class="form-control-focus"> </div>
-                                                </div>*@
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">

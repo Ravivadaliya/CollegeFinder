@@ -56,6 +56,28 @@ namespace CollegeFinder.DAL
 
 
 
+        public DataTable College_Seatcheck(string conn,int Collegeid)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(conn);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[SeatCheck]");
+                sqlDB.AddInParameter(dbCMD, "Collegeid",SqlDbType.Int, Collegeid);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
+
         public DataTable College_SelectByPk(string conn, int? Collegeid)
         {
             try
@@ -117,6 +139,7 @@ namespace CollegeFinder.DAL
             {
                 SqlDatabase sqlDB = new SqlDatabase(con);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("[studentinsert]");
+
                 sqlDB.AddInParameter(dbCMD, "studentname", SqlDbType.NVarChar, admission.Studentname);
                 sqlDB.AddInParameter(dbCMD, "collegeid", SqlDbType.NVarChar, admission.Collegeid);
                 sqlDB.AddInParameter(dbCMD, "studentmobile", SqlDbType.NVarChar, admission.Studentmobile);

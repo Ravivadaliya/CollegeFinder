@@ -28,10 +28,22 @@ namespace CollegeFinder.Controllers
             return View("AllColleges", dt);
         }
 
-        public IActionResult Admission(int? Collegeid)
+        public IActionResult Admission(int Collegeid)
         {
-            TempData["Collegeid"] = Collegeid;
-            return View();
+            string connstr = Configuration.GetConnectionString("myConnectionStrings");
+            Client admindal = new Client();
+            DataTable dt = admindal.College_Seatcheck(connstr, Collegeid);
+
+            if (dt.Rows.Count <= 0)
+            {
+                TempData["Seatfull"] = "Seat are full";
+                return RedirectToAction("SingleCollege");
+            }
+            else
+            {
+                TempData["Collegeid"] = Collegeid;
+                return View();
+            }
         }
 
         public IActionResult SingleCollege(int? Collegeid)
@@ -49,7 +61,7 @@ namespace CollegeFinder.Controllers
         {
             string str = this.Configuration.GetConnectionString("myConnectionStrings");
             SqlConnection conn2 = new SqlConnection(str);
-            conn2.Open();   
+            conn2.Open();
             SqlCommand cmd = conn2.CreateCommand();
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -76,7 +88,11 @@ namespace CollegeFinder.Controllers
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
             Client Fordata = new Client();
-            
+
+
+
+
+
             if (Convert.ToBoolean(Fordata.Student_Insert(connectionstr, admission)))
             {
                 TempData["Admission"] = "Admission Successfully";

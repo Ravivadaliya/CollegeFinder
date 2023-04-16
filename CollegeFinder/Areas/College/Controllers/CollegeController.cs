@@ -159,24 +159,43 @@ namespace CollegeFinder.Areas.College.Controllers
 
         public IActionResult Save(CollegeModel Forcollege)
         {
+
+
+            if (Forcollege.File1 != null)
+            {
+                string FilePath = "wwwroot\\Upload";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string fileNameWithPath = Path.Combine(path, Forcollege.File1.FileName);
+                Forcollege.College_image = FilePath.Replace("wwwroot\\", "/") + "/" + Forcollege.File1.FileName;
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    Forcollege.File1.CopyTo(stream);
+                }
+            }
+            if (Forcollege.File2 != null)
+            {
+                string FilePath = "wwwroot\\Upload";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string fileNameWithPath = Path.Combine(path, Forcollege.File2.FileName);
+                Forcollege.Imagepath = FilePath.Replace("wwwroot\\", "/") + "/" + Forcollege.File2.FileName;
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    Forcollege.File2.CopyTo(stream);
+                }
+            }
+
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
 
-            ////if (Forcollege.File1 != null)
-            ////{
-            //    string FilePath = "wwwroot\\Upload";
-            //    string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
 
-            //    if (!Directory.Exists(path))
-            //        Directory.CreateDirectory(path);
-
-            //    string fileNamewithPath = Path.Combine(path, Forcollege.File1.FileName);
-            //    Forcollege.Imagepath= "~" + FilePath.Replace("wwwroot\\", "/") + "/" + Forcollege.File1.FileName;
-
-            //    using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
-            //    {
-            //        Forcollege.File1.CopyTo(stream);
-            //    }
-            ////}
+ 
 
             AllData Fordata= new AllData();
 
