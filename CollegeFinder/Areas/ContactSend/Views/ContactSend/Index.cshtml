@@ -12,7 +12,7 @@
                 <a asp-area="Admin" asp-controller="Admin" asp-action="Dashboard"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
             <li class="active-bre">
-                <a href="#"> Users</a>
+                <a href="#"> Contact Send</a>
             </li>
             <li class="page-back">
                 <a asp-area="Admin" asp-controller="Admin" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i>Back</a>
@@ -27,14 +27,14 @@
                 <div class="portlet-title">
                     <div class="caption">
 
-                        <span class="caption-subject font-red sbold uppercase">
+                     @*   <span class="caption-subject font-red sbold uppercase">
 
                             @if (TempData["AlertMsg"] != null)
                             {
 
                                 <h4 class="alert text-success">@TempData["AlertMsg"]</h4>
                             }
-                        </span>
+                        </span>*@
 
                     </div>
                 </div>
@@ -42,7 +42,7 @@
 
                 <div class="box-inn-sp">
                     <div class="inn-title">
-                        <h4>User Details</h4>
+                        <h4>Contact Send Details</h4>
                         @*<p>All about students like name, student id, phone, email, country, city and more</p>*@
                     </div>
                     <div class="tab-inn">
@@ -51,8 +51,8 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" >ContactSend id</th>
-                                        <th class="text-center" >Name</th>
+                                        <th class="text-center">ContactSend id</th>
+                                        <th class="text-center">Name</th>
                                         <th class="text-center">Email</th>
                                         <th class="text-center">City</th>
                                         <th class="text-center">Country</th>
