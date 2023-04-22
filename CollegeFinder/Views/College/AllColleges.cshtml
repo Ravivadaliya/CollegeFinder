@@ -61,7 +61,7 @@
                                 <table class="bordered responsive-table">
                                     <tbody>
                                         <tr>
-                                            <td colspan="2">Bechelore Of Engineering</td>
+                                            <td colspan="2">Engineering</td>
                                         </tr>
 
                                         <tr>
@@ -74,7 +74,7 @@
                                         </tr>
                                         <tr>
                                             <td>Website :</td>  
-                                            <td>@dr["College_Website"]</td>
+                                            <td> <a href="@dr["College_Website"]" target="_blank">@dr["College_Website"]</a> </td>
                                         </tr>
                                         <tr>
                                             <td>Placement : </td>
@@ -90,7 +90,7 @@
                                     <ul>
                                         
                                         <li><a asp-controller="College" asp-action="SingleCollege" asp-route-Collegeid="@Convert.ToInt32(dr["Collegeid"])"  > More Info..</a> </li>
-                                        <li><a><i class="fa fa-eye" aria-hidden="true"></i>@dr["Totalseat"] Aavailable</a> </li>
+                                        <li><a><i class="fa fa-eye" aria-hidden="true"></i>@dr["Totalseat"] Seat Aavailable</a> </li>
                                     </ul>
                                 </div>
                             </div>

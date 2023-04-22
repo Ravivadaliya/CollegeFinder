@@ -76,9 +76,9 @@
 
                 <!-- Dropdown Structure -->
                 <ul id='top-menu' class='dropdown-content top-menu-sty'>
-                    <li>
+                    @*<li>
                         <a asp-controller="Admin" asp-action="Add" asp-route-Adminid="@CV.Id()" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Admin Setting</a>
-                    </li>
+                    </li>*@
                     <li class="divider"></li>
                     <li><a  asp-area="Admin" asp-controller="Admin" asp-action="Logout" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
                     </li>
@@ -112,10 +112,10 @@
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i>College</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a asp-area="College" asp-controller="College"  asp-action="Index" >All College</a>
+                                    <li><a asp-area="College" asp-controller="College"  asp-action="EngineeringColleges" >Enginnering </a>
                                     </li>
                                     <li>
-                                        <a asp-area="College" asp-controller="College" asp-action="CollegeAddEdit">Add New College</a>
+                                        <a asp-area="College" asp-controller="College" asp-action="MedicalColleges">Medical Colleges</a>
                                     </li>
                                     @*<li><a href="admin-trash-courses.html">Trash Course</a>
                                     </li>*@

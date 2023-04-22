@@ -87,12 +87,12 @@ namespace CollegeFinder.DAL
 
         #region college
 
-        public DataTable College_selectall(string conn)
+        public DataTable Engineering_College_selectall(string conn)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[first50college]");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[Engineeringcollegeselectall]");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -105,7 +105,28 @@ namespace CollegeFinder.DAL
             {
                 return null;
             }
-        }   
+        }
+
+        public DataTable Medical_College_selectall(string conn)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(conn);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[Medicalcollegeselectall]");
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        
         public bool? College_Delete(string conn, int? Collegeid)
         {
             try
@@ -233,6 +254,26 @@ namespace CollegeFinder.DAL
         #endregion
 
 
+
+        public DataTable CollegeTypeDropdown(string conn)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(conn);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[CollegeTypeDropDown]");
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
     }
 }

@@ -62,10 +62,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
                                     @foreach (DataRow dr in Model.Rows)
                                     {
                                         <tr>
-                                            <td>@dr["ContactId"]</td>
+                                            <td>@i</td>
                                             <td>@dr["Name"]</td>
                                             <td>@dr["Email"]</td>
                                             <td>@dr["City"]</td>
@@ -80,6 +83,7 @@
 
                                             </td>
                                         </tr>
+                                        i++;
                                     }
                                 </tbody>
                             </table>

@@ -4,6 +4,7 @@ using System.Data;
 using CollegeFinder.Areas.College.Models;
 using CollegeFinder.BAL;
 using System.Data.SqlClient;
+using CollegeFinder.Areas.CollegeType.Models;
 using System.Configuration;
 namespace CollegeFinder.Areas.College.Controllers
 {
@@ -49,40 +50,23 @@ namespace CollegeFinder.Areas.College.Controllers
 
         }
 
-        public IActionResult Index()
+        public IActionResult EngineeringColleges()
         {
-
-            string markers = "[";
-            string conString = this.Configuration.GetConnectionString("myConnectionStrings");
-            SqlCommand cmd = new SqlCommand("select * FROM CollegeLatLong");
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                cmd.Connection = con;
-                con.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        markers += "{";
-                        markers += string.Format("'title': '{0}',", sdr["College_Name"]);
-                        markers += string.Format("'lat': '{0}',", sdr["latitude"]);
-                        markers += string.Format("'lng': '{0}',", sdr["longitude"]);
-                        markers += "},";
-                    }
-                }
-                con.Close();
-            }
-
-            markers += "];";
-            ViewBag.Markers = markers;
-
-
-
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
             AllData dalLOC = new AllData();
-            DataTable dt = dalLOC.College_selectall(connectionstr);
+            DataTable dt = dalLOC.Engineering_College_selectall(connectionstr);
             return View("Index", dt);
         }
+        public IActionResult MedicalColleges()
+        {
+            string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
+            AllData dalLOC = new AllData();
+            DataTable dt = dalLOC.Medical_College_selectall(connectionstr);
+            return View("Index", dt);
+        }
+
+
+
 
 
 
@@ -103,9 +87,21 @@ namespace CollegeFinder.Areas.College.Controllers
 
         public IActionResult Add(int? Collegeid)
         {
-
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
             AllData dalLOC = new AllData();
+            DataTable dt1 = dalLOC.CollegeTypeDropdown(connectionstr);
+
+            List<CollegeTypeDropDownModel> list = new List<CollegeTypeDropDownModel>();
+
+            foreach(DataRow dr in dt1.Rows)
+            {
+                CollegeTypeDropDownModel vlist = new CollegeTypeDropDownModel();
+                vlist.collegetypeid = Convert.ToInt32(dr["collegetypeid"]);
+                vlist.collegeType = dr["collegeType"].ToString();
+                list.Add(vlist);
+            }
+            ViewBag.Collegetypelist = list;
+
 
             if (Collegeid != null)
             {

@@ -7,7 +7,7 @@ namespace CollegeFinder.Areas.College.Models
 
         [Required]
         [Display(Name = "College Name")]
-        [StringLength(35, MinimumLength = 4)]
+        [StringLength(100, MinimumLength = 4)]
         public string College_Name { get; set; }
 
         [Required]
@@ -105,7 +105,9 @@ namespace CollegeFinder.Areas.College.Models
         public string longitude { get; set; }
 
         public IFormFile? File1{ get; set; }
+
         public IFormFile? File2{ get; set; }
+
 
         public string Imagepath { get; set; }
 
@@ -113,12 +115,21 @@ namespace CollegeFinder.Areas.College.Models
 
         public string College_image { get; set; }
 
+        [Required]
+        [StringLength(40, MinimumLength = 5)]
         public string College_Website { get; set; }
 
+        [Required]
+        [StringLength(24, MinimumLength = 5)]
         public string College_Number { get; set; }
 
+
+        [Required]
+
         public string? iframemap { get; set; }
+        [Required]
         public string? iframeheight { get; set; }
+        [Required]
         public string? iframewidth { get; set; }
 
     }

@@ -34,16 +34,9 @@ namespace CollegeFinder.Controllers
             Client admindal = new Client();
             DataTable dt = admindal.College_Seatcheck(connstr, Collegeid);
 
-            if (dt.Rows.Count <= 0)
-            {
-                TempData["Seatfull"] = "Seat are full";
-                return RedirectToAction("SingleCollege");
-            }
-            else
-            {
-                TempData["Collegeid"] = Collegeid;
-                return View();
-            }
+            TempData["Collegeid"] = Collegeid;
+            return View();
+            
         }
 
         public IActionResult SingleCollege(int? Collegeid)
@@ -89,15 +82,11 @@ namespace CollegeFinder.Controllers
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
             Client Fordata = new Client();
 
-
-
-
-
             if (Convert.ToBoolean(Fordata.Student_Insert(connectionstr, admission)))
             {
                 TempData["Admission"] = "Admission Successfully";
             }
-            return RedirectToAction("Admission");
+            return View("Admission");
         }
 
 
