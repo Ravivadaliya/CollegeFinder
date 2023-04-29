@@ -7,17 +7,20 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-form">
-                    <form asp-controller="College" asp-action="Search" >
-                        <div class="sf-type">
-                            <div class="sf-input">
-                                <input type="text" id="sf-box" name="Searchname" placeholder="Search course and city">
+                    <form asp-controller="college" asp-action="search" >
+                        <div class="sf-type col-md-7">
+                            <div class="sf-input col-md-5">
+                                <input type="text" id="sf-box" name="SearchName" placeholder="search College">
                             </div>
-
+                            <div class="sf-input col-md-5">
+                                <input type="text" id="sf-box" name="SearchCity" placeholder="search city">
+                            </div>
                         </div>
-                        <div class="sf-submit">
-                            <input type="submit" value="Search">
+                        <div class="sf-submit col-md-3">
+                            <input type="submit" value="search">
                         </div>
                     </form>
+                
                 </div>
             </div>
         </div>

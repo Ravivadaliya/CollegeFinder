@@ -2,6 +2,8 @@
 {
     public class CollegeModel
     {
-        public string Searchname { get; set; }
+        public string SearchName { get; set; }
+
+        public string SearchCity { get; set; }
     }
 }

@@ -78,10 +78,12 @@
                                         <th class="text-center">No</th>
                                         <th class="text-center">College_Name</th>
                                         <th class="text-center">collegeType</th>
-                                        <th class="text-center">Total student</th>
+                                        @*<th class="text-center">Total student</th>*@
                                         <th class="text-center">Courses</th>
                                         <th class="text-center">Average_Fees</th>
-                                        <th class="text-center" >Totalseat</th>
+                                        @*<th class="text-center" >Totalseat</th>*@
+                                        <th class="text-center">City</th>
+                                        <th class="text-center">State</th>
                                         <th class="text-center">Edit</th>
                                         <th class="text-center">Delete</th>
                                     </tr>
@@ -96,10 +98,13 @@
                                             <td>@i</td>
                                             <td>@dr["College_Name"]</td>
                                             <td>@dr["collegeType"]</td>
-                                            <td>@dr["Total_Student_Enrollments"]</td>
+                                            @*<td>@dr["Total_Student_Enrollments"]</td>*@
                                             <td>@dr["Courses"]</td>
                                             <td>@dr["Average_Fees"]</td>
-                                            <td>@dr["Totalseat"]</td>
+                                            @*<td>@dr["Totalseat"]</td>*@
+                                            <td>@dr["City"]</td>
+                                            <td>@dr["State"]</td>
+
                                             <td>
                                                 <a style="color:white" asp-controller="College" asp-action="Add" asp-route-Collegeid="@Convert.ToInt32(dr["Collegeid"])" class="btn btn-primary">Edit</a>
                                             </td>

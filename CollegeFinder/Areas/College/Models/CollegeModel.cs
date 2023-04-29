@@ -132,5 +132,6 @@ namespace CollegeFinder.Areas.College.Models
         [Required]
         public string? iframewidth { get; set; }
 
+
     }
 }

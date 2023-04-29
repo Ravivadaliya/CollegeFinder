@@ -5,7 +5,7 @@ using CollegeFinder.Areas.College.Models;
 using CollegeFinder.BAL;
 using System.Data.SqlClient;
 using CollegeFinder.Areas.CollegeType.Models;
-using System.Configuration;
+//using System.Configuration;
 namespace CollegeFinder.Areas.College.Controllers
 {
     [CheckAccess]
@@ -50,30 +50,21 @@ namespace CollegeFinder.Areas.College.Controllers
 
         }
 
-        public IActionResult EngineeringColleges()
+        public IActionResult Index()
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
-            DataTable dt = dalLOC.Engineering_College_selectall(connectionstr);
+            Adminpanel dalLOC = new Adminpanel();
+            DataTable dt = dalLOC.College_selectall(connectionstr);
             return View("Index", dt);
         }
-        public IActionResult MedicalColleges()
-        {
-            string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
-            DataTable dt = dalLOC.Medical_College_selectall(connectionstr);
-            return View("Index", dt);
-        }
-
-
-
+   
 
 
 
         public IActionResult Delete(int? Collegeid)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
 
             if (Convert.ToBoolean(dalLOC.College_Delete(connectionstr, Collegeid)))
                 TempData["AlertMsg"] = "Record Delete Successfully";
@@ -88,7 +79,7 @@ namespace CollegeFinder.Areas.College.Controllers
         public IActionResult Add(int? Collegeid)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
             DataTable dt1 = dalLOC.CollegeTypeDropdown(connectionstr);
 
             List<CollegeTypeDropDownModel> list = new List<CollegeTypeDropDownModel>();
@@ -193,7 +184,7 @@ namespace CollegeFinder.Areas.College.Controllers
 
  
 
-            AllData Fordata= new AllData();
+            Adminpanel Fordata= new Adminpanel();
 
             if (Forcollege.Collegeid==null)
             {

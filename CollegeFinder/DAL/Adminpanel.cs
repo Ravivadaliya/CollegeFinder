@@ -6,7 +6,7 @@ using System.Data.Common;
 
 namespace CollegeFinder.DAL
 {
-    public class AllData
+    public class Adminpanel
     {
 
 
@@ -87,12 +87,12 @@ namespace CollegeFinder.DAL
 
         #region college
 
-        public DataTable Engineering_College_selectall(string conn)
+        public DataTable College_selectall(string conn)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(conn);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[Engineeringcollegeselectall]");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("[collegeselectall]");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))

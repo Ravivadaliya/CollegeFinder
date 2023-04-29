@@ -23,7 +23,7 @@ namespace CollegeFinder.Areas.student.Controllers
         public IActionResult Index()
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
             DataTable dt = dalLOC.Student_SelectAll(connectionstr);
             return View("Index", dt);
         }
@@ -31,7 +31,7 @@ namespace CollegeFinder.Areas.student.Controllers
         public IActionResult Delete(int? studentid)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
 
             if (Convert.ToBoolean(dalLOC.studentdelete(connectionstr, studentid)))
                 TempData["AlertMsg"] = "Record Delete Successfully";

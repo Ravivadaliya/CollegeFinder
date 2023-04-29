@@ -47,9 +47,6 @@ namespace CollegeFinder.Controllers
             return View("SingleCollege", dt);
         }
 
-
-
-
         public IActionResult Search(CollegeModel college)
         {
             string str = this.Configuration.GetConnectionString("myConnectionStrings");
@@ -58,18 +55,37 @@ namespace CollegeFinder.Controllers
             SqlCommand cmd = conn2.CreateCommand();
             cmd.CommandType = CommandType.StoredProcedure;
 
-            if (college.Searchname == null)
+            if (college.SearchName == null && college.SearchCity==null)
             {
-
                 TempData["noinput"] = "Search Box Are empty";
                 Client cliendal = new Client();
                 DataTable dt = cliendal.College_SelectAll(str);
                 return View("AllColleges", dt);
             }
-            else
+            else if(college.SearchCity == null)
             {
+                cmd.CommandText = "[CollegesearchByname]";
+                cmd.Parameters.Add("@Searchname", SqlDbType.VarChar).Value = college.SearchName;
+                DataTable dt = new DataTable();
+                SqlDataReader objsdr = cmd.ExecuteReader();
+                dt.Load(objsdr);
+                return View("AllColleges", dt);
+            }
+            else if(college.SearchName == null)
+            {
+                cmd.CommandText = "[CollegesearchByCity]";
+                cmd.Parameters.Add("@SearchCity", SqlDbType.VarChar).Value = college.SearchCity;
+                DataTable dt = new DataTable();
+                SqlDataReader objsdr = cmd.ExecuteReader();
+                dt.Load(objsdr);
+                return View("AllColleges", dt);
+
+            }
+            else
+            {  
                 cmd.CommandText = "[CollegeSearch]";
-                cmd.Parameters.Add("@Searchname", SqlDbType.VarChar).Value = college.Searchname;
+                cmd.Parameters.Add("@Searchname", SqlDbType.VarChar).Value = college.SearchName;
+                cmd.Parameters.Add("@SearchCity", SqlDbType.VarChar).Value = college.SearchCity;
                 DataTable dt = new DataTable();
                 SqlDataReader objsdr = cmd.ExecuteReader();
                 dt.Load(objsdr);

@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace CollegeFinder.Areas.ContactSend.Controllers
 {
-
+     
     [CheckAccess]
     [Area("ContactSend")]
     [Route("ContactSend/[controller]/[action]")]
@@ -25,7 +25,7 @@ namespace CollegeFinder.Areas.ContactSend.Controllers
         public IActionResult Index()
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
             DataTable dt = dalLOC.Contact_Send_SelectAll(connectionstr);
             return View("Index", dt);
         }
@@ -38,7 +38,7 @@ namespace CollegeFinder.Areas.ContactSend.Controllers
         public IActionResult Delete(int? ContactId)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            AllData dalLOC = new AllData();
+            Adminpanel dalLOC = new Adminpanel();
 
             if (Convert.ToBoolean(dalLOC.ContactSend_Delete(connectionstr, ContactId)))
                 TempData["AlertMsg"] = "Record Delete Successfully";
