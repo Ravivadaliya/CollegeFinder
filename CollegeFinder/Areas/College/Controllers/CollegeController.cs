@@ -20,53 +20,50 @@ namespace CollegeFinder.Areas.College.Controllers
         {
             Configuration = _configuration;
         }
+        
+        //public IActionResult Map()
+        //{
+        //    string markers = "[";
+        //    string conString = this.Configuration.GetConnectionString("myConnectionStrings");
+        //    SqlCommand cmd = new SqlCommand("SELECT * FROM CollegeLatLong");
+        //    using (SqlConnection con = new SqlConnection(conString))
+        //    {
+        //        cmd.Connection = con;
+        //        con.Open();
+        //        using (SqlDataReader sdr = cmd.ExecuteReader())
+        //        {
+        //            while (sdr.Read())
+        //            {
+        //                markers += "{";
+        //                markers += string.Format("'title': '{0}',", sdr["College_name"]);
+        //                markers += string.Format("'lat': '{0}',", sdr["latitude"]);
+        //                markers += string.Format("'lng': '{0}',", sdr["longitude"]);
+        //                markers += "},";
+        //            }
+        //        }
+        //        con.Close();
+        //    }
 
-        public IActionResult Map()
-        {
-            string markers = "[";
-            string conString = this.Configuration.GetConnectionString("myConnectionStrings");
-            SqlCommand cmd = new SqlCommand("SELECT * FROM CollegeLatLong");
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                cmd.Connection = con;
-                con.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        markers += "{";
-                        markers += string.Format("'title': '{0}',", sdr["College_name"]);
-                        markers += string.Format("'lat': '{0}',", sdr["latitude"]);
-                        markers += string.Format("'lng': '{0}',", sdr["longitude"]);
-                        markers += "},";
-                    }
-                }
-                con.Close();
-            }
+        //    markers += "];";
+        //    ViewBag.Markers = markers;
+        //    return View();
 
-            markers += "];";
-            ViewBag.Markers = markers;
-            return View();
-
-        }
+        //}
 
         public IActionResult Index()
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            Adminpanel dalLOC = new Adminpanel();
-            DataTable dt = dalLOC.College_selectall(connectionstr);
+            Adminpanel ad = new Adminpanel();
+            DataTable dt = ad.College_selectall(connectionstr);
             return View("Index", dt);
         }
-   
-
-
 
         public IActionResult Delete(int? Collegeid)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            Adminpanel dalLOC = new Adminpanel();
+            Adminpanel ad = new Adminpanel();
 
-            if (Convert.ToBoolean(dalLOC.College_Delete(connectionstr, Collegeid)))
+            if (Convert.ToBoolean(ad.College_Delete(connectionstr, Collegeid)))
                 TempData["AlertMsg"] = "Record Delete Successfully";
             else
             {
@@ -79,8 +76,8 @@ namespace CollegeFinder.Areas.College.Controllers
         public IActionResult Add(int? Collegeid)
         {
             string connectionstr = Configuration.GetConnectionString("myConnectionStrings");
-            Adminpanel dalLOC = new Adminpanel();
-            DataTable dt1 = dalLOC.CollegeTypeDropdown(connectionstr);
+            Adminpanel ad = new Adminpanel();
+            DataTable dt1 = ad.CollegeTypeDropdown(connectionstr);
 
             List<CollegeTypeDropDownModel> list = new List<CollegeTypeDropDownModel>();
 
@@ -96,7 +93,7 @@ namespace CollegeFinder.Areas.College.Controllers
 
             if (Collegeid != null)
             {
-                DataTable dt = dalLOC.College_SelectByPk(connectionstr, Collegeid);
+                DataTable dt = ad.College_SelectByPk(connectionstr, Collegeid);
                 if (dt.Rows.Count > 0)
                 {
                     CollegeModel ForCollege = new CollegeModel();
@@ -199,8 +196,6 @@ namespace CollegeFinder.Areas.College.Controllers
                 if (Convert.ToBoolean(Fordata.College_Update(connectionstr, Forcollege)))
                     TempData["AlertMsg"] = "Record Update Successfully";
             }
-
-
             return RedirectToAction("Index");
         }
     }

@@ -100,7 +100,7 @@ namespace CollegeFinder.Controllers
 
             if (Convert.ToBoolean(Fordata.Student_Insert(connectionstr, admission)))
             {
-                TempData["Admission"] = "Admission Successfully";
+                TempData["Admission"] = "Inquiry Send Successfully";
             }
             return View("Admission");
         }
