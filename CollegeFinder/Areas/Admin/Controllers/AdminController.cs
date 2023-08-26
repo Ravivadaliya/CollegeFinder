@@ -61,21 +61,21 @@ namespace CollegeFinder.Areas.Admin.Controllers
                     else
                     {
                         error = "Enter valid Status id";
-                        TempData["Error"] = error;
+                        TempData["Sublogerror"] = error;
                         return RedirectToAction("SubLogin");
                     }
                 }
                 else
                 {
                     error = "Enter Valid Details";
-                    TempData["Error"] = error;
+                    TempData["Sublogerror"] = error;
                     return RedirectToAction("SubLogin");
                 }
             }
             else
             {
                 error = "Email Or Password Are Empty";
-                TempData["Error"] = error;
+                TempData["Sublogerror"] = error;
                 return RedirectToAction("SubLogin");
             }
         }
