@@ -13,9 +13,9 @@ namespace CollegeFinder.Areas.College.Models
         [Required]
         [Display(Name = "Gender")]
         [StringLength(10, MinimumLength = 2)]
-        public string Genders_Accepted { get; set; }
+        public string Genders_Accepted { get; set; }   
         
-        [Required]
+        [Required]  
         [Display(Name = "Campus Size")]
         [StringLength(10, MinimumLength = 4)]
         public string Campus_Size { get; set; }

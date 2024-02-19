@@ -41,10 +41,10 @@ namespace CollegeFinder.Areas.ContactSend.Controllers
             Adminpanel dalLOC = new Adminpanel();
 
             if (Convert.ToBoolean(dalLOC.ContactSend_Delete(connectionstr, ContactId)))
-                TempData["AlertMsg"] = "Record Delete Successfully";
+                TempData["Contactsendalert"] = "Record Delete Successfully";
             else
             {
-                TempData["AlertMsg"] = "Not deleted";
+                TempData["Contactsendalert"] = "Not deleted";
             }
             return RedirectToAction("Index");
         }

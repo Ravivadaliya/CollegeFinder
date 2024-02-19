@@ -20,7 +20,8 @@ namespace CollegeFinder.Areas.College.Controllers
         {
             Configuration = _configuration;
         }
-        
+
+      
         //public IActionResult Map()
         //{
         //    string markers = "[";
@@ -57,6 +58,7 @@ namespace CollegeFinder.Areas.College.Controllers
             DataTable dt = ad.College_selectall(connectionstr);
             return View("Index", dt);
         }
+
 
         public IActionResult Delete(int? Collegeid)
         {

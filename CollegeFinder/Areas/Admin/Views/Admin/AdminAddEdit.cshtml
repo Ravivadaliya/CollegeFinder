@@ -15,7 +15,7 @@
                 <a href="#">Add Admin</a>
             </li>
             <li class="page-back">
-                <a asp-area="User" asp-controller="User" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                <a asp-area="Admin" asp-controller="Admin" asp-action="Dashboard"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
             </li>
         </ul>
     </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="bor">
 
-                                        <form  asp-area="Admin" asp-controller="Admin" asp-action="Save">
+                                        <form asp-area="Admin" asp-controller="Admin" asp-action="Save">
                                             <div class="row">
                                                 @Html.HiddenFor(x=>x.Adminid)
 

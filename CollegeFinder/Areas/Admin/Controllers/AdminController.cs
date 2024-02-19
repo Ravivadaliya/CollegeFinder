@@ -185,7 +185,6 @@ namespace CollegeFinder.Areas.Admin.Controllers
             return RedirectToAction("AdminIndex");
         }
 
-
         public IActionResult Add(int? Adminid)
         {
 
@@ -210,7 +209,6 @@ namespace CollegeFinder.Areas.Admin.Controllers
                         Foradmin.AdminCountry = dr["AdminCountry"].ToString();
                         Foradmin.AdminCreationdate = Convert.ToDateTime(dr["AdminCreationdate"]);
                         Foradmin.AdminModificationdate = Convert.ToDateTime(dr["AdminModificationdate"]);
-
                     }
                     return View("AdminAddEdit", Foradmin);
                 }

@@ -1,7 +1,6 @@
 ﻿@using System.Data;
 @model DataTable
 
-
 <div class="search-top">
     <div class="container">
         <div class="row">
@@ -64,7 +63,7 @@
                                 <table class="bordered responsive-table">
                                     <tbody>
                                         <tr>
-                                            <td colspan="2">Engineering</td>
+                                            <td colspan="2">@dr["College_Type"]</td>
                                         </tr>
 
                                         <tr>
@@ -104,8 +103,6 @@
                         </div>
                     </div>
                 }
-
-
             </div>
         </div>
     </div>
